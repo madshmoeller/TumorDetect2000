@@ -1,0 +1,1496 @@
+{
+  "arch": "3d",
+  "tta": true,
+  "threshold": 0.5,
+  "ensemble_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "models": [
+    {
+      "fold": 0,
+      "epoch": 35,
+      "val_dice_proxy": 0.9124645948410034,
+      "deep_supervision": true,
+      "checkpoint": "/home/mads/tumordetect/outputs/checkpoints/3d_fold0.pt"
+    },
+    {
+      "fold": 1,
+      "epoch": 35,
+      "val_dice_proxy": 0.895118236541748,
+      "deep_supervision": true,
+      "checkpoint": "/home/mads/tumordetect/outputs/checkpoints/3d_fold1.pt"
+    },
+    {
+      "fold": 2,
+      "epoch": 28,
+      "val_dice_proxy": 0.9172285556793213,
+      "deep_supervision": true,
+      "checkpoint": "/home/mads/tumordetect/outputs/checkpoints/3d_fold2.pt"
+    },
+    {
+      "fold": 3,
+      "epoch": 38,
+      "val_dice_proxy": 0.9100770831108094,
+      "deep_supervision": true,
+      "checkpoint": "/home/mads/tumordetect/outputs/checkpoints/3d_fold3.pt"
+    },
+    {
+      "fold": 4,
+      "epoch": 31,
+      "val_dice_proxy": 0.8928942441940307,
+      "deep_supervision": true,
+      "checkpoint": "/home/mads/tumordetect/outputs/checkpoints/3d_fold4.pt"
+    }
+  ],
+  "n_ok": 60,
+  "n_failed": 0,
+  "wall_clock_minutes": 4.667303248246511,
+  "per_case": {
+    "eval_001": {
+      "voxels": 2661,
+      "volume_mm3": 2661.0,
+      "confidence": 0.5607597231864929,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 0.7831394076347351,
+      "source": "eval_001.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 5.01
+    },
+    "eval_002": {
+      "voxels": 54460,
+      "volume_mm3": 54460.0,
+      "confidence": 0.9238754510879517,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_002.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.67
+    },
+    "eval_003": {
+      "voxels": 169763,
+      "volume_mm3": 169763.0,
+      "confidence": 0.974233090877533,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_003.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.54
+    },
+    "eval_004": {
+      "voxels": 76890,
+      "volume_mm3": 76890.0,
+      "confidence": 0.9494515061378479,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_004.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "none (full volume)",
+      "crop_would_clip_voxels": 140,
+      "seconds": 5.13
+    },
+    "eval_005": {
+      "voxels": 106242,
+      "volume_mm3": 106242.0,
+      "confidence": 0.968798041343689,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_005.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.63
+    },
+    "eval_006": {
+      "voxels": 83984,
+      "volume_mm3": 83984.0,
+      "confidence": 0.9530686140060425,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_006.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.63
+    },
+    "eval_007": {
+      "voxels": 52223,
+      "volume_mm3": 52223.0,
+      "confidence": 0.9321746826171875,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_007.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.59
+    },
+    "eval_008": {
+      "voxels": 100194,
+      "volume_mm3": 100194.0,
+      "confidence": 0.9187736511230469,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_008.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.65
+    },
+    "eval_009": {
+      "voxels": 53646,
+      "volume_mm3": 53646.0,
+      "confidence": 0.9722784757614136,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_009.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.56
+    },
+    "eval_010": {
+      "voxels": 183520,
+      "volume_mm3": 183520.0,
+      "confidence": 0.9705155491828918,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_010.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.63
+    },
+    "eval_011": {
+      "voxels": 95539,
+      "volume_mm3": 95539.0,
+      "confidence": 0.9736031293869019,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_011.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.62
+    },
+    "eval_012": {
+      "voxels": 95536,
+      "volume_mm3": 95536.0,
+      "confidence": 0.9736029505729675,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_012.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.51
+    },
+    "eval_013": {
+      "voxels": 47032,
+      "volume_mm3": 47032.0,
+      "confidence": 0.9197321534156799,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_013.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.53
+    },
+    "eval_014": {
+      "voxels": 77243,
+      "volume_mm3": 77243.0,
+      "confidence": 0.8932244181632996,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_014.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.61
+    },
+    "eval_015": {
+      "voxels": 152939,
+      "volume_mm3": 152939.0,
+      "confidence": 0.9746976494789124,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_015.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.64
+    },
+    "eval_016": {
+      "voxels": 19186,
+      "volume_mm3": 19186.0,
+      "confidence": 0.9208137392997742,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_016.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.55
+    },
+    "eval_017": {
+      "voxels": 90655,
+      "volume_mm3": 90655.0,
+      "confidence": 0.9583803415298462,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_017.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.68
+    },
+    "eval_018": {
+      "voxels": 111345,
+      "volume_mm3": 111345.0,
+      "confidence": 0.969314694404602,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_018.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.6
+    },
+    "eval_019": {
+      "voxels": 122275,
+      "volume_mm3": 122275.0,
+      "confidence": 0.958911120891571,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_019.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.59
+    },
+    "eval_020": {
+      "voxels": 99446,
+      "volume_mm3": 99446.0,
+      "confidence": 0.9571624398231506,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_020.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.65
+    },
+    "eval_021": {
+      "voxels": 148146,
+      "volume_mm3": 148146.0,
+      "confidence": 0.9547634720802307,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_021.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.46
+    },
+    "eval_022": {
+      "voxels": 70452,
+      "volume_mm3": 70452.0,
+      "confidence": 0.9737037420272827,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_022.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.65
+    },
+    "eval_023": {
+      "voxels": 153906,
+      "volume_mm3": 153906.0,
+      "confidence": 0.9788980484008789,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_023.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.7
+    },
+    "eval_024": {
+      "voxels": 52735,
+      "volume_mm3": 52735.0,
+      "confidence": 0.9712529182434082,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_024.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.62
+    },
+    "eval_025": {
+      "voxels": 134258,
+      "volume_mm3": 134258.0,
+      "confidence": 0.9303401708602905,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_025.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.6
+    },
+    "eval_026": {
+      "voxels": 46019,
+      "volume_mm3": 46019.0,
+      "confidence": 0.9425306916236877,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_026.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.64
+    },
+    "eval_027": {
+      "voxels": 100666,
+      "volume_mm3": 100666.0,
+      "confidence": 0.9747956991195679,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_027.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.59
+    },
+    "eval_028": {
+      "voxels": 109669,
+      "volume_mm3": 109669.0,
+      "confidence": 0.9599257111549377,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_028.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.59
+    },
+    "eval_029": {
+      "voxels": 175997,
+      "volume_mm3": 175997.0,
+      "confidence": 0.951837420463562,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_029.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.61
+    },
+    "eval_030": {
+      "voxels": 145725,
+      "volume_mm3": 145725.0,
+      "confidence": 0.8921383619308472,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_030.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.6
+    },
+    "eval_031": {
+      "voxels": 79728,
+      "volume_mm3": 79728.0,
+      "confidence": 0.9663253426551819,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_031.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.57
+    },
+    "eval_032": {
+      "voxels": 25293,
+      "volume_mm3": 25293.0,
+      "confidence": 0.9402147531509399,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_032.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.63
+    },
+    "eval_033": {
+      "voxels": 179869,
+      "volume_mm3": 179869.0,
+      "confidence": 0.9663782119750977,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_033.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.56
+    },
+    "eval_034": {
+      "voxels": 228890,
+      "volume_mm3": 228890.0,
+      "confidence": 0.9602004289627075,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_034.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.61
+    },
+    "eval_035": {
+      "voxels": 27422,
+      "volume_mm3": 27422.0,
+      "confidence": 0.8878384232521057,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_035.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.62
+    },
+    "eval_036": {
+      "voxels": 115255,
+      "volume_mm3": 115255.0,
+      "confidence": 0.9747360348701477,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_036.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.59
+    },
+    "eval_037": {
+      "voxels": 128390,
+      "volume_mm3": 128390.0,
+      "confidence": 0.967242419719696,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_037.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.62
+    },
+    "eval_038": {
+      "voxels": 34186,
+      "volume_mm3": 34186.0,
+      "confidence": 0.935863196849823,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_038.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.63
+    },
+    "eval_039": {
+      "voxels": 53122,
+      "volume_mm3": 53122.0,
+      "confidence": 0.9483372569084167,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_039.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.61
+    },
+    "eval_040": {
+      "voxels": 148915,
+      "volume_mm3": 148915.0,
+      "confidence": 0.9661377668380737,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_040.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.56
+    },
+    "eval_041": {
+      "voxels": 145740,
+      "volume_mm3": 145740.0,
+      "confidence": 0.9644782543182373,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_041.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.68
+    },
+    "eval_042": {
+      "voxels": 109204,
+      "volume_mm3": 109204.0,
+      "confidence": 0.9532924294471741,
+      "confidence_is_calibrated": false,
+      "n_components": 3,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_042.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.58
+    },
+    "eval_043": {
+      "voxels": 66256,
+      "volume_mm3": 66256.0,
+      "confidence": 0.9594572186470032,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_043.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.65
+    },
+    "eval_044": {
+      "voxels": 24322,
+      "volume_mm3": 24322.0,
+      "confidence": 0.9605801701545715,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_044.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.66
+    },
+    "eval_045": {
+      "voxels": 126742,
+      "volume_mm3": 126742.0,
+      "confidence": 0.974116861820221,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_045.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.6
+    },
+    "eval_046": {
+      "voxels": 107193,
+      "volume_mm3": 107193.0,
+      "confidence": 0.893123209476471,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_046.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.62
+    },
+    "eval_047": {
+      "voxels": 54433,
+      "volume_mm3": 54433.0,
+      "confidence": 0.8969807028770447,
+      "confidence_is_calibrated": false,
+      "n_components": 3,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_047.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.67
+    },
+    "eval_048": {
+      "voxels": 75312,
+      "volume_mm3": 75312.0,
+      "confidence": 0.9589945673942566,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_048.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.61
+    },
+    "eval_049": {
+      "voxels": 97179,
+      "volume_mm3": 97179.0,
+      "confidence": 0.9737578630447388,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_049.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.63
+    },
+    "eval_050": {
+      "voxels": 144356,
+      "volume_mm3": 144356.0,
+      "confidence": 0.9388414025306702,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_050.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.6
+    },
+    "eval_051": {
+      "voxels": 101386,
+      "volume_mm3": 101386.0,
+      "confidence": 0.9652208089828491,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_051.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.6
+    },
+    "eval_052": {
+      "voxels": 114879,
+      "volume_mm3": 114879.0,
+      "confidence": 0.9673222303390503,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_052.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.61
+    },
+    "eval_053": {
+      "voxels": 52738,
+      "volume_mm3": 52738.0,
+      "confidence": 0.971223771572113,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_053.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.67
+    },
+    "eval_054": {
+      "voxels": 224582,
+      "volume_mm3": 224582.0,
+      "confidence": 0.9447376132011414,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_054.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.53
+    },
+    "eval_055": {
+      "voxels": 17996,
+      "volume_mm3": 17996.0,
+      "confidence": 0.9061120748519897,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_055.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.62
+    },
+    "eval_056": {
+      "voxels": 93943,
+      "volume_mm3": 93943.0,
+      "confidence": 0.9435408115386963,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_056.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.66
+    },
+    "eval_057": {
+      "voxels": 82819,
+      "volume_mm3": 82819.0,
+      "confidence": 0.977217435836792,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_057.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.6
+    },
+    "eval_058": {
+      "voxels": 90937,
+      "volume_mm3": 90937.0,
+      "confidence": 0.9671751856803894,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_058.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.57
+    },
+    "eval_059": {
+      "voxels": 75765,
+      "volume_mm3": 75765.0,
+      "confidence": 0.9744687676429749,
+      "confidence_is_calibrated": false,
+      "n_components": 1,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_059.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.66
+    },
+    "eval_060": {
+      "voxels": 44025,
+      "volume_mm3": 44025.0,
+      "confidence": 0.9515302181243896,
+      "confidence_is_calibrated": false,
+      "n_components": 2,
+      "verdict": "tumour detected",
+      "prob_max": 1.0,
+      "source": "eval_060.nii.gz",
+      "raw_shape": [
+        240,
+        240,
+        155,
+        4
+      ],
+      "zyx_shape": [
+        155,
+        240,
+        240
+      ],
+      "nonstandard_geometry": false,
+      "crop": "canonical",
+      "seconds": 4.61
+    }
+  },
+  "failures": {}
+}

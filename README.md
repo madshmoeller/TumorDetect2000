@@ -84,9 +84,17 @@ python serve.py                    # → http://127.0.0.1:8000/
 ```
 
 The site works with no data present — the viewer falls back to a scripted demo,
-which is a documented path, not an error. To drive it with the real model you need
-the dataset: see **[DATA.md](DATA.md)**, which also explains why no imaging data,
-predicted mask, or model weight is tracked here.
+which is a documented path, not an error.
+
+The dataset is a **git submodule** pinned to an exact commit, so clone with
+`--recurse-submodules` (or run `git submodule update --init`) to get it. The
+**deployed 5-fold weights are tracked**, so inference runs with no training:
+
+```bash
+python -m ml.predict --input-dir <DIR> --output-dir outputs/testset
+```
+
+See **[DATA.md](DATA.md)** for what is and is not tracked, and why.
 
 ## Honest limitations
 
