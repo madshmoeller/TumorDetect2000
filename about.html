@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TumorNet 2000 ™ — About Us / Our Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body data-page="about">
+
+<div class="page">
+
+  <div class="marquee">
+    <div class="marquee__reel">
+      <span class="marquee__text">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** SCIENCE CORNER: FIGURES ONLY, NO VIBES *** <span data-mascot-name>Braino</span> PEER-REVIEWED THIS HIMSELF ***</span>
+      <span class="marquee__text" aria-hidden="true">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** SCIENCE CORNER: FIGURES ONLY, NO VIBES *** <span data-mascot-name>Braino</span> PEER-REVIEWED THIS HIMSELF ***</span>
+    </div>
+  </div>
+
+  <main class="frame">
+
+    <header class="masthead">
+      <div class="masthead__title-row">
+        <div class="diamond diamond--yellow" aria-hidden="true"></div>
+        <h1 class="wordmark">TumorNet <span class="wordmark__sup">2000</span> ™</h1>
+        <div class="diamond diamond--cyan" aria-hidden="true"></div>
+      </div>
+      <p class="tagline">The Internet's #1 Virtual Tumor Detection Lab! 100% Free. Accuracy not guaranteed.</p>
+      <div class="badge-row">
+        <span class="badge badge--netscape">BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 · 800×600 · 16-BIT COLOR</span>
+        <span class="badge badge--new">NEW!</span>
+        <span class="badge badge--doctype">HTML 4.01 TRANSITIONAL</span>
+      </div>
+    </header>
+
+    <nav class="sitenav" aria-label="Site navigation" id="siteNav"></nav>
+
+    <div class="construction">THIS SITE IS PERPETUALLY UNDER CONSTRUCTION</div>
+
+    <div class="frame__body">
+
+      <aside class="sidebar">
+        <section class="counter">
+          <h2 class="counter__label">YOU ARE VISITOR NUMBER</h2>
+          <div class="counter__digits" id="hitCounter" role="img" aria-label="visitor count"></div>
+          <p class="counter__note">since the site's creation (probably)</p>
+        </section>
+
+        <section class="guestbook">
+          <h2 class="guestbook__title">SIGN OUR GUESTBOOK</h2>
+          <p class="guestbook__note">(read-only, don't ask)</p>
+          <ul class="guestbook__list" id="guestbookList"></ul>
+          <div class="guestbook__form">
+            <input class="guestbook__input" id="guestbookName" placeholder="Your name..." aria-label="Your name">
+            <input class="guestbook__input" id="guestbookMessage" placeholder="Your message..." aria-label="Your message">
+            <button class="guestbook__submit" id="guestbookSign" type="button">Sign →</button>
+          </div>
+        </section>
+
+        <section class="webring">
+          <h2 class="webring__title">◆ WEBRING ◆</h2>
+          <p class="webring__links">
+            [ <a href="index.html">← prev</a> ·
+            <a href="results.html">random</a> ·
+            <a href="methods.html">next →</a> ]
+          </p>
+        </section>
+      </aside>
+
+      <section class="lab lab--wide">
+
+        <h2 class="lab__heading">ABOUT US ✦ OUR RESEARCH</h2>
+        <p class="lab__steps">
+          Every number on this site traces to a figure below. That's rule 2 — see
+          <a href="methods.html">HOW IT WORKS</a> for the full list. n = 60 cases throughout;
+          confidence intervals accompany every point estimate that has one.
+        </p>
+
+        <div class="gallery" id="figureGallery">
+
+          <figure class="gallery__card" id="fig-F01">
+            <a href="assets/figures/F01.png" target="_blank" rel="noopener">
+              <img class="gallery__img" src="assets/figures/F01.png" alt="F01 cohort overview: tumour burden across 60 cases" loading="lazy">
+            </a>
+            <figcaption class="gallery__caption">
+              <strong>F01 · Cohort overview.</strong> Tumour burden spans a 35× range across the
+              60 cases (7,285 to 256,875 voxels), and all three expert sub-labels — oedema,
+              non-enhancing core, enhancing tumour — are present in every single case.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__card" id="fig-F02">
+            <a href="assets/figures/F02.png" target="_blank" rel="noopener">
+              <img class="gallery__img" src="assets/figures/F02.png" alt="F02 why per-case normalisation is not optional" loading="lazy">
+            </a>
+            <figcaption class="gallery__caption">
+              <strong>F02 · Why per-case normalisation is not optional.</strong> Brain-mean FLAIR
+              intensity spans 63 to 749 across cases — an 11.9× spread with no clinical meaning.
+              Fed raw, a model learns which case it's looking at, not what tumour looks like.
+              Per-case z-scoring inside the brain mask fixes this.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__card" id="fig-F03">
+            <a href="assets/figures/F03.png" target="_blank" rel="noopener">
+              <img class="gallery__img" src="assets/figures/F03.png" alt="F03 one case, four co-registered channels" loading="lazy">
+            </a>
+            <figcaption class="gallery__caption">
+              <strong>F03 · One case, four channels.</strong> FLAIR, T1w, T1-Gd and T2w of the
+              same axial slice, with the expert tumour mask outlined. All four channels are
+              co-registered voxel-for-voxel — this is what the scanner on
+              <a href="index.html">THE SCANNER</a> lets you scrub through for any of the 60 cases.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__card" id="fig-F04">
+            <a href="assets/figures/F04.png" target="_blank" rel="noopener">
+              <img class="gallery__img" src="assets/figures/F04.png" alt="F04 where the tumours are" loading="lazy">
+            </a>
+            <figcaption class="gallery__caption">
+              <strong>F04 · Where the tumours are.</strong> Lesions concentrate off-midline, but
+              the cohort covers both hemispheres and a wide axial range — no single slice or
+              region can be assumed to contain the tumour.
+            </figcaption>
+          </figure>
+
+          <figure class="gallery__card" id="fig-F05">
+            <a href="assets/figures/F05.png" target="_blank" rel="noopener">
+              <img class="gallery__img" src="assets/figures/F05.png" alt="F05 class imbalance: whole volume vs within brain" loading="lazy">
+            </a>
+            <figcaption class="gallery__caption">
+              <strong>F05 · Class imbalance.</strong> Tumour is 1.2% of the raw volume but 7.6%
+              of brain tissue and 46% of axial slices — the imbalance depends entirely on what you
+              count. Crop to brain, train on slices.
+            </figcaption>
+          </figure>
+
+        </div>
+
+        <p class="gallery__note">
+          Figures F06–F16 (architecture, training curves, per-case Dice, ablations, stress tests)
+          land here once the model is trained — see <a href="methods.html">HOW IT WORKS</a> for
+          where things stand.
+        </p>
+
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__badges">
+        <span class="footer__badge footer__badge--yellow">100% ORGANIC NEURONS</span>
+        <span class="footer__badge footer__badge--cyan">HTML 4.01 APPROVED</span>
+        <span class="footer__badge footer__badge--pink">◄ WEBRING ►</span>
+      </div>
+      <p class="footer__copy">© 2000–2003 TumorNet Labs. All Rights Reserved. Not affiliated with any real hospital, browser, or brain.</p>
+      <p class="footer__disclaimer">This is a design demo and does not diagnose anything. Please consult an actual doctor, not a cartoon brain with googly eyes.</p>
+    </footer>
+
+  </main>
+
+  <div class="mascot-dock">
+    <div class="mascot__bubble" id="mascotBubble" role="status" hidden></div>
+    <button class="brain" id="brain" type="button" aria-label="Ask the mascot for a fun fact">
+      <span class="brain__fissure" aria-hidden="true"></span>
+      <span class="brain__eye brain__eye--left" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__eye brain__eye--right" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__mouth" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</div>
+
+<script src="src/site.js"></script>
+<script src="src/scans.js"></script>
+<script src="src/popups.js"></script>
+</body>
+</html>

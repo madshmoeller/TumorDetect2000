@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TumorNet 2000 ™ — Virtual Tumor Detection Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body data-page="index">
+
+<div class="page">
+
+  <!-- ── scrolling disclaimer ─────────────────────────────────────────── -->
+  <div class="marquee">
+    <div class="marquee__reel">
+      <span class="marquee__text">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** POWERED BY CONVOLUTIONAL NEURAL NETS AND VIBES *** 100% FREE FOREVER *** <span data-mascot-name>Braino</span> IS WATCHING YOU ***</span>
+      <span class="marquee__text" aria-hidden="true">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** POWERED BY CONVOLUTIONAL NEURAL NETS AND VIBES *** 100% FREE FOREVER *** <span data-mascot-name>Braino</span> IS WATCHING YOU ***</span>
+    </div>
+  </div>
+
+  <main class="frame">
+
+    <!-- ── masthead ───────────────────────────────────────────────────── -->
+    <header class="masthead">
+      <div class="masthead__title-row">
+        <div class="diamond diamond--yellow" aria-hidden="true"></div>
+        <h1 class="wordmark">TumorNet <span class="wordmark__sup">2000</span> ™</h1>
+        <div class="diamond diamond--cyan" aria-hidden="true"></div>
+      </div>
+      <p class="tagline">The Internet's #1 Virtual Tumor Detection Lab! 100% Free. Accuracy not guaranteed.</p>
+      <div class="badge-row">
+        <span class="badge badge--netscape">BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 · 800×600 · 16-BIT COLOR</span>
+        <span class="badge badge--new">NEW!</span>
+        <span class="badge badge--doctype">HTML 4.01 TRANSITIONAL</span>
+      </div>
+    </header>
+
+    <nav class="sitenav" aria-label="Site navigation" id="siteNav"></nav>
+
+    <div class="construction">THIS SITE IS PERPETUALLY UNDER CONSTRUCTION</div>
+
+    <div class="frame__body">
+
+      <!-- ── sidebar ──────────────────────────────────────────────────── -->
+      <aside class="sidebar">
+
+        <section class="counter">
+          <h2 class="counter__label">YOU ARE VISITOR NUMBER</h2>
+          <div class="counter__digits" id="hitCounter" role="img" aria-label="visitor count"></div>
+          <p class="counter__note">since the site's creation (probably)</p>
+        </section>
+
+        <section class="guestbook">
+          <h2 class="guestbook__title">SIGN OUR GUESTBOOK</h2>
+          <p class="guestbook__note">(read-only, don't ask)</p>
+          <ul class="guestbook__list" id="guestbookList"></ul>
+          <div class="guestbook__form">
+            <input class="guestbook__input" id="guestbookName" placeholder="Your name..." aria-label="Your name">
+            <input class="guestbook__input" id="guestbookMessage" placeholder="Your message..." aria-label="Your message">
+            <button class="guestbook__submit" id="guestbookSign" type="button">Sign →</button>
+          </div>
+        </section>
+
+        <section class="webring">
+          <h2 class="webring__title">◆ WEBRING ◆</h2>
+          <p class="webring__links">
+            [ <a href="methods.html">← prev</a> ·
+            <a href="about.html">random</a> ·
+            <a href="results.html">next →</a> ]
+          </p>
+        </section>
+
+      </aside>
+
+      <!-- ── the lab: real viewer (shown once assets/cases/manifest.json loads) ─ -->
+      <section class="lab lab--wide" id="labReal" hidden>
+
+        <h2 class="lab__heading">THE SCANNER</h2>
+        <p class="lab__steps" id="scannerBlurb">60 cases · 4 MRI channels each · scroll to move through the brain.</p>
+
+        <div class="split-switch" id="splitSwitch" role="radiogroup" aria-label="Which set of scans to browse">
+          <button class="split-switch__btn" type="button" data-split="train"
+                  role="radio" aria-checked="true">TRAIN SET</button>
+          <button class="split-switch__btn" type="button" data-split="test"
+                  role="radio" aria-checked="false">TEST SET</button>
+        </div>
+
+        <div class="case-grid case-grid--scroll" id="realCaseGrid" role="radiogroup" aria-label="Patient cases"></div>
+
+        <p class="empty-state" id="realEmptyState">No case loaded. Pick a patient file above.</p>
+
+        <div class="real-panel" id="realPanel" hidden>
+
+          <p class="loaded-file">LOADED CASE: <span id="realLoadedCase"></span></p>
+
+          <div class="viewer-toolbar">
+            <div class="modality-row" role="group" aria-label="MRI channels — toggle any on or off" id="modalityRow"></div>
+
+            <label class="orientation-picker">
+              <span class="orientation-picker__label">VIEW:</span>
+              <select class="orientation-picker__select" id="orientationSelect" aria-label="Viewing plane">
+                <option value="axial">Axial</option>
+                <option value="coronal">Coronal</option>
+                <option value="sagittal">Sagittal</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="viewer">
+            <div class="viewer__grid">
+              <div class="viewer__stages" id="viewerStages"></div>
+              <div class="viewer__slicelabel" id="viewerSliceLabel" aria-hidden="true"></div>
+            </div>
+
+            <div class="elevator" id="elevatorTrack" role="slider" tabindex="0"
+                 aria-label="Slice, along the current viewing plane" aria-orientation="vertical"
+                 aria-valuemin="0" aria-valuemax="71" aria-valuenow="0">
+              <div class="elevator__rail"></div>
+              <div class="elevator__handle" id="elevatorHandle">↕</div>
+            </div>
+          </div>
+
+          <div class="viewer__controls">
+            <button class="mask-toggle" id="maskToggle" type="button" aria-pressed="true">
+              <span class="mask-toggle__swatch"></span> EXPERT MASK: <span id="maskToggleState">ON</span>
+            </button>
+            <button class="mask-toggle mask-toggle--prediction" id="predToggle" type="button"
+                    aria-pressed="false" hidden>
+              <span class="mask-toggle__swatch mask-toggle__swatch--prediction"></span>
+              MODEL PREDICTION: <span id="predToggleState">OFF</span>
+            </button>
+            <p class="viewer__hint">Scroll, drag the elevator, or use ↑ / ↓ on it to move through the brain. Toggle channels or switch view above to compare.</p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <h4 class="stat__label">TUMOUR VOLUME (EXPERT)</h4>
+              <p class="stat__value stat__value--volume" id="realStatVolume">—</p>
+            </div>
+            <div class="stat">
+              <h4 class="stat__label">THIS SLICE</h4>
+              <p class="stat__value stat__value--confidence" id="realStatSliceArea">—</p>
+            </div>
+            <div class="stat stat--wide" id="compositionStat">
+              <h4 class="stat__label">COMPOSITION</h4>
+              <div class="composition-bar" id="realCompositionBar" aria-hidden="true"></div>
+              <ul class="composition-legend" id="realCompositionLegend"></ul>
+            </div>
+            <div class="stat stat--prediction" id="predictionStats" hidden>
+              <h4 class="stat__label">MODEL vs EXPERT (OUT-OF-FOLD)</h4>
+              <div class="prediction-stats__row">
+                <span>Dice <strong id="predStatDice">—</strong></span>
+                <span>HD95 <strong id="predStatHd95">—</strong></span>
+                <span>Predicted volume <strong id="predStatVolume">—</strong></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── the lab: legacy mock demo (fallback if assets/cases/ is absent) ── -->
+      <section class="lab" id="labLegacy">
+
+        <h2 class="lab__heading">DETECT-A-TUMOR!</h2>
+        <p class="lab__steps">Step 1: pick a scan. Step 2: click the big button. Step 3: regret nothing.</p>
+
+        <div class="case-grid" id="caseGrid" role="radiogroup" aria-label="Patient files"></div>
+
+        <p class="empty-state" id="emptyState">No scan loaded. Pick a patient file above to begin your totally rigorous medical analysis.</p>
+
+        <div class="case-panel" id="casePanel" hidden>
+
+          <p class="loaded-file">LOADED FILE: <span id="loadedFile"></span></p>
+
+          <button class="detect-btn" id="detectBtn" type="button">DETECT TUMOR!</button>
+
+          <!-- analysing -->
+          <div class="analysis" id="analysisPanel" hidden>
+            <p class="analysis__msg" id="analysisMsg"></p>
+            <div class="progress" role="progressbar" id="progressBar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress__fill" id="progressFill"></div>
+            </div>
+            <p class="progress__pct" id="progressPct">0%</p>
+          </div>
+
+          <!-- loaded, not yet run -->
+          <div class="preview" id="previewPanel" hidden>
+            <div class="framed"><img class="framed__img" id="previewImg" alt="Selected scan"></div>
+            <p class="hint">Scan loaded. Hit the button when you're ready.</p>
+          </div>
+
+          <!-- results -->
+          <div class="results" id="resultsPanel" hidden>
+
+            <div class="prediction-toggle">
+              <span class="prediction-toggle__label">MODEL PREDICTION</span>
+              <button class="prediction-toggle__switch" id="predictionToggle" type="button"
+                      role="switch" aria-checked="false" aria-label="Show model prediction">
+                <span class="prediction-toggle__knob"></span>
+              </button>
+              <span class="prediction-toggle__state" id="predictionToggleState">OFF</span>
+            </div>
+
+            <!-- comparisonView: "Diff map" -->
+            <div class="view" id="diffView" hidden>
+              <h3 class="view__title">DIFFERENCE MAP</h3>
+              <div class="scan-stage">
+                <img class="scan-stage__layer" id="diffBase" alt="Scan">
+                <img class="scan-stage__layer" id="diffOverlay" alt="Difference map overlay">
+              </div>
+              <ul class="legend">
+                <li class="legend__item"><span class="swatch swatch--correct"></span>model got it right</li>
+                <li class="legend__item"><span class="swatch swatch--missed"></span>model missed this</li>
+                <li class="legend__item"><span class="swatch swatch--imagined"></span>model imagined this</li>
+              </ul>
+            </div>
+
+            <!-- comparisonView: "Diff map", locked -->
+            <div class="view view--locked" id="diffLocked" hidden>
+              <h3 class="view__title">DIFFERENCE MAP</h3>
+              <div class="scan-stage scan-stage--locked">
+                <p class="locked-hint">🔒 The difference map is model prediction vs. ground truth — flip the
+                  switch above to unlock it.</p>
+              </div>
+            </div>
+
+            <!-- comparisonView: "Slider reveal" -->
+            <div class="view" id="sliderView" hidden>
+              <h3 class="view__title" id="sliderViewTitle">↔ DRAG TO COMPARE ↔</h3>
+              <div class="scan-stage scan-stage--slider" id="sliderTrack">
+                <div class="reveal reveal--truth">
+                  <img class="scan-stage__layer" id="truthBase" alt="Scan">
+                  <img class="scan-stage__layer" id="truthOverlay" alt="Ground truth overlay">
+                  <span class="stage-tag stage-tag--truth">GROUND TRUTH</span>
+                </div>
+                <div class="reveal reveal--pred" id="predReveal">
+                  <img class="scan-stage__layer" id="predBase" alt="">
+                  <img class="scan-stage__layer" id="predOverlay" alt="Model prediction overlay">
+                  <span class="stage-tag stage-tag--pred">MODEL PREDICTION</span>
+                </div>
+                <div class="slider__line" id="sliderLine" aria-hidden="true"></div>
+                <div class="slider__handle" id="sliderHandle"
+                     role="slider" tabindex="0"
+                     aria-label="Reveal model prediction"
+                     aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">↔</div>
+                <p class="locked-hint locked-hint--overlay" id="sliderLockedHint">🔒 flip the switch above to
+                  see what the model predicted</p>
+              </div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <h4 class="stat__label">MODEL CONFIDENCE</h4>
+                <p class="stat__value stat__value--confidence" id="statConfidence">—</p>
+                <div class="stat__meter"><div class="stat__meter-fill" id="statConfidenceBar"></div></div>
+              </div>
+              <div class="stat">
+                <h4 class="stat__label">ESTIMATED TUMOR VOLUME</h4>
+                <p class="stat__value stat__value--volume" id="statVolume">—</p>
+              </div>
+              <p class="verdict">VERDICT: <span id="statVerdict">—</span></p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ── footer ─────────────────────────────────────────────────────── -->
+    <footer class="footer">
+      <div class="footer__badges">
+        <span class="footer__badge footer__badge--yellow">100% ORGANIC NEURONS</span>
+        <span class="footer__badge footer__badge--cyan">HTML 4.01 APPROVED</span>
+        <span class="footer__badge footer__badge--pink">◄ WEBRING ►</span>
+      </div>
+      <p class="footer__copy">© 2000–2003 TumorNet Labs. All Rights Reserved. Not affiliated with any real hospital, browser, or brain.</p>
+      <p class="footer__disclaimer">This is a design demo and does not diagnose anything. Please consult an actual doctor, not a cartoon brain with googly eyes.</p>
+    </footer>
+
+  </main>
+
+  <!-- fake paywall, opened by either lab's model-prediction switch. Page-level
+       (not nested in either lab section) so it isn't hidden along with them. -->
+  <div class="paywall" id="paywallPanel" hidden>
+    <div class="paywall__card" role="dialog" aria-modal="true" aria-labelledby="paywallHeading">
+      <p class="paywall__eyebrow">MODEL PREDICTION IS PREMIUM CONTENT</p>
+      <h3 class="paywall__heading" id="paywallHeading">UNLOCK IT — $19.99/mo</h3>
+      <p class="paywall__body">Ground truth is free. Finding out what the model thinks costs extra. Enter payment details to unlock it.</p>
+
+      <div class="paywall__field">
+        <label for="paywallCard">CARD NUMBER</label>
+        <input class="paywall__input" id="paywallCard" type="text" inputmode="numeric" autocomplete="off" placeholder="4242 4242 4242 4242" maxlength="19">
+      </div>
+      <div class="paywall__row">
+        <div class="paywall__field">
+          <label for="paywallExpiry">EXPIRY</label>
+          <input class="paywall__input" id="paywallExpiry" type="text" autocomplete="off" placeholder="MM/YY" maxlength="5">
+        </div>
+        <div class="paywall__field">
+          <label for="paywallCvc">CVC</label>
+          <input class="paywall__input" id="paywallCvc" type="text" inputmode="numeric" autocomplete="off" placeholder="123" maxlength="4">
+        </div>
+      </div>
+      <div class="paywall__field">
+        <label for="paywallName">NAME ON CARD</label>
+        <input class="paywall__input" id="paywallName" type="text" autocomplete="off" placeholder="A. Sample">
+      </div>
+
+      <button class="paywall__pay" id="paywallPayBtn" type="button" disabled>PAY NOW →</button>
+      <button class="paywall__cancel" id="paywallCancelBtn" type="button">Maybe later</button>
+      <p class="paywall__disclaimer">TumorNet Payment Systems ™ does not exist. This form is fake: nothing typed above is sent anywhere, stored anywhere, or charged to anything. Clicking Pay Now just dismisses this box.</p>
+    </div>
+  </div>
+
+  <!-- ── mascot ───────────────────────────────────────────────────────── -->
+  <div class="mascot-dock">
+    <div class="mascot__bubble" id="mascotBubble" role="status" hidden></div>
+    <button class="brain" id="brain" type="button" aria-label="Ask the mascot for a fun fact">
+      <span class="brain__fissure" aria-hidden="true"></span>
+      <span class="brain__eye brain__eye--left" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__eye brain__eye--right" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__mouth" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</div>
+
+<script src="src/site.js"></script>
+<script src="src/paywall.js"></script>
+<script src="src/scans.js"></script>
+<script src="src/pipeline.js"></script>
+<script src="src/app.js"></script>
+<script src="src/viewer.js"></script>
+<script src="src/popups.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TumorNet 2000 ™ — The Numbers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body data-page="results">
+
+<div class="page">
+
+  <div class="marquee">
+    <div class="marquee__reel">
+      <span class="marquee__text">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** RESULTS PENDING — CHECK BACK AFTER TRAINING *** <span data-mascot-name>Braino</span> IS NOT ALLOWED TO GUESS THE DICE SCORE ***</span>
+      <span class="marquee__text" aria-hidden="true">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** RESULTS PENDING — CHECK BACK AFTER TRAINING *** <span data-mascot-name>Braino</span> IS NOT ALLOWED TO GUESS THE DICE SCORE ***</span>
+    </div>
+  </div>
+
+  <main class="frame">
+
+    <header class="masthead">
+      <div class="masthead__title-row">
+        <div class="diamond diamond--yellow" aria-hidden="true"></div>
+        <h1 class="wordmark">TumorNet <span class="wordmark__sup">2000</span> ™</h1>
+        <div class="diamond diamond--cyan" aria-hidden="true"></div>
+      </div>
+      <p class="tagline">The Internet's #1 Virtual Tumor Detection Lab! 100% Free. Accuracy not guaranteed.</p>
+      <div class="badge-row">
+        <span class="badge badge--netscape">BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 · 800×600 · 16-BIT COLOR</span>
+        <span class="badge badge--new">NEW!</span>
+        <span class="badge badge--doctype">HTML 4.01 TRANSITIONAL</span>
+      </div>
+    </header>
+
+    <nav class="sitenav" aria-label="Site navigation" id="siteNav"></nav>
+
+    <div class="construction">RESULTS ARE PENDING — NO MODEL HAS BEEN TRAINED YET</div>
+
+    <div class="frame__body">
+
+      <aside class="sidebar">
+        <section class="counter">
+          <h2 class="counter__label">YOU ARE VISITOR NUMBER</h2>
+          <div class="counter__digits" id="hitCounter" role="img" aria-label="visitor count"></div>
+          <p class="counter__note">since the site's creation (probably)</p>
+        </section>
+
+        <section class="guestbook">
+          <h2 class="guestbook__title">SIGN OUR GUESTBOOK</h2>
+          <p class="guestbook__note">(read-only, don't ask)</p>
+          <ul class="guestbook__list" id="guestbookList"></ul>
+          <div class="guestbook__form">
+            <input class="guestbook__input" id="guestbookName" placeholder="Your name..." aria-label="Your name">
+            <input class="guestbook__input" id="guestbookMessage" placeholder="Your message..." aria-label="Your message">
+            <button class="guestbook__submit" id="guestbookSign" type="button">Sign →</button>
+          </div>
+        </section>
+
+        <section class="webring">
+          <h2 class="webring__title">◆ WEBRING ◆</h2>
+          <p class="webring__links">
+            [ <a href="index.html">← prev</a> ·
+            <a href="guestbook.html">random</a> ·
+            <a href="about.html">next →</a> ]
+          </p>
+        </section>
+      </aside>
+
+      <section class="lab lab--wide">
+
+        <h2 class="lab__heading">THE NUMBERS</h2>
+        <p class="lab__steps">
+          No model has been trained yet, so there are no results to show — and rule 4 means we're
+          not going to fake a preview. What's here is what we committed to <em>before</em> running
+          anything, per rule 3.
+        </p>
+
+        <article class="doc">
+          <h3 class="doc__heading">Pre-registered, 2026-08-17</h3>
+          <table class="doc__table">
+            <thead><tr><th></th><th>floor</th><th>stretch</th></tr></thead>
+            <tbody>
+              <tr><td>Mean out-of-fold Dice, 60 cases</td><td>≥ 0.85</td><td>≥ 0.90</td></tr>
+              <tr><td>Median Dice</td><td>≥ 0.87</td><td>≥ 0.90</td></tr>
+              <tr><td>Worst-case Dice</td><td>≥ 0.55</td><td>≥ 0.55 (unchanged)</td></tr>
+              <tr><td>Beats FLAIR-threshold baseline</td><td colspan="2">paired Wilcoxon, p &lt; 0.01</td></tr>
+              <tr><td>Training budget</td><td>≤ 60 min (M2&nbsp;Max)</td><td>≤ 180 min (RTX&nbsp;3090&nbsp;Ti, this machine)</td></tr>
+            </tbody>
+          </table>
+
+          <p class="gallery__note">
+            Revised same day, still before any training run: a 24&nbsp;GB RTX 3090&nbsp;Ti turned out to
+            be the machine actually running this, so a stretch target was added rather than raising the
+            floor after the fact — see <a href="methods.html">HOW IT WORKS</a> for why. Both numbers get
+            reported regardless of which is hit.
+          </p>
+
+          <p class="gallery__note">
+            Once training finishes, this page gets: a sortable per-case Dice table for all 60
+            cases, the cross-validation summary, and a CSV download — plus figures F09–F16 on
+            <a href="about.html">ABOUT US</a>. If a target above is missed, it will say so here,
+            not a rounded-up version of it.
+          </p>
+        </article>
+
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__badges">
+        <span class="footer__badge footer__badge--yellow">100% ORGANIC NEURONS</span>
+        <span class="footer__badge footer__badge--cyan">HTML 4.01 APPROVED</span>
+        <span class="footer__badge footer__badge--pink">◄ WEBRING ►</span>
+      </div>
+      <p class="footer__copy">© 2000–2003 TumorNet Labs. All Rights Reserved. Not affiliated with any real hospital, browser, or brain.</p>
+      <p class="footer__disclaimer">This is a design demo and does not diagnose anything. Please consult an actual doctor, not a cartoon brain with googly eyes.</p>
+    </footer>
+
+  </main>
+
+  <div class="mascot-dock">
+    <div class="mascot__bubble" id="mascotBubble" role="status" hidden></div>
+    <button class="brain" id="brain" type="button" aria-label="Ask the mascot for a fun fact">
+      <span class="brain__fissure" aria-hidden="true"></span>
+      <span class="brain__eye brain__eye--left" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__eye brain__eye--right" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__mouth" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</div>
+
+<script src="src/site.js"></script>
+<script src="src/scans.js"></script>
+<script src="src/popups.js"></script>
+</body>
+</html>

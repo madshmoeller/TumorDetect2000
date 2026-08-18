@@ -1,0 +1,86 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# TumorNet 2000 — what is deliberately NOT published, and why.
+#
+# Two of these exclusions are not about repository size. Read them before
+# removing anything.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── 1. THE DATASET — attribution is withheld, so we cannot legally redistribute
+#
+# agentic-medical-ai-lab/ is a SEPARATE upstream repository
+# (github.com/kimmouridsen-cloud/agentic-medical-ai-lab). Its MIT licence covers
+# the software; the imaging data carries its own terms:
+#
+#   "CC-BY-SA 4.0 - source, citation and full attribution published with the
+#    course material after the lab"          -- data/cases/dataset.json
+#
+# CC-BY-SA *requires* attribution, and that attribution has not been published
+# yet — the upstream repo gitignores ATTRIBUTION.md with the note "held back
+# until the lab is over". We therefore cannot satisfy the licence by
+# redistributing the data now. Clone the upstream repo instead; this project
+# reads it from ./agentic-medical-ai-lab/.
+agentic-medical-ai-lab/
+
+# ── 2. THE EVAL SET — publishing it would leak a live competition
+#
+# The 60 eval cases are the test inputs of a private, currently-running
+# classroom Kaggle competition: "Images only: no masks are published for these"
+# (data/eval/tier_eval.txt). Republishing them — as NIfTI, as the browsable PNG
+# atlases the web exporter produces, or as our own predicted masks — hands every
+# other participant the test set or a ready-made answer. Excluded on fairness
+# grounds, not size.
+# Name-agnostic on purpose: an earlier pass excluded only `outputs/kaggle_eval/`
+# and a sibling directory `outputs/kaggle_eval_backup_3donly/` walked straight
+# past it carrying the submission and 60 predicted test masks. Match the CONTENT,
+# not one directory name.
+assets/cases/eval_*/
+eval_*.nii
+eval_*.nii.gz
+eval_*_mask.nii.gz
+submission*.csv
+outputs/*kaggle*/
+outputs/*eval*/
+outputs/predict_selftest/
+outputs/predict_scoretest/
+
+# ── 3. Derived data — regenerable in one command, and large
+#
+# assets/cases/ is 819 MB of PNG atlases rendered FROM the dataset above, so it
+# inherits the same attribution problem as well as being bulky. The viewer
+# degrades gracefully without it (see the documented fallback at the bottom of
+# src/viewer.js) and it is rebuilt with:
+#     python -m ml.export_web --full --arch 3d
+assets/cases/
+
+# ml/cache/ is 3.2 GB of preprocessed .npy, rebuilt with:  python -m ml.data --build
+ml/cache/
+
+# ── 4. Model weights — 4.7 GB, over GitHub's per-file limit
+#
+# Individual checkpoints are 36-70 MB and there are 42 of them over 50 MB; two
+# exceed the 100 MB hard limit. Attach the deployed 5-fold set to a GitHub
+# Release or use Git LFS if they need to ship. The JSON results and training
+# histories ARE tracked, so every reported number stays auditable without them.
+*.pt
+*.pth
+outputs/**/*.npz
+outputs/**/*.npy
+outputs/predictions/
+nnunet_tumordetect/
+
+# ── 5. Environments and scratch
+.venv/
+.venv-nnunet/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.DS_Store
+*.log
+
+# ── 6. Credentials — never, under any circumstances
+kaggle.json
+access_token
+.env
+*.pem
+*.key

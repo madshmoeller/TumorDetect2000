@@ -1,0 +1,28 @@
+{
+  "n_cases": 60,
+  "tumour_voxels": {
+    "min": 7285,
+    "p25": 68909,
+    "median": 108705,
+    "p75": 143462,
+    "max": 256875
+  },
+  "burden_ratio_max_min": 35.2608098833219,
+  "brain_fraction_mean": 0.15969255712365588,
+  "tumour_frac_volume_median": 0.012175739247311829,
+  "tumour_frac_brain_median": 0.07565273175705192,
+  "positive_slices": 4290,
+  "total_slices": 9300,
+  "positive_slice_fraction": 0.4612903225806452,
+  "positive_slice_area": {
+    "p10": 115,
+    "median": 1386,
+    "p90": 3103
+  },
+  "tiny_positive_slice_fraction": 0.09277389277389278,
+  "flair_brain_mean_range": [
+    63.0896110534668,
+    748.9791870117188
+  ],
+  "flair_brain_mean_ratio": 11.871672284950028
+}

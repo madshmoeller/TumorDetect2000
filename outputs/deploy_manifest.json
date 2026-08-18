@@ -1,0 +1,38 @@
+{
+  "deployed": {
+    "tag": "3d_fixed_avg",
+    "arch": "3d",
+    "dir": "/home/mads/tumordetect/outputs/overnight/3d_fixed_avg",
+    "mean_dice": 0.9046335934994875,
+    "median_dice": 0.9280968495536892,
+    "min_dice": 0.612032465902435,
+    "ci95": [
+      0.8868486458013992,
+      0.9203003763289279
+    ],
+    "n": 60
+  },
+  "checkpoints_installed": [
+    "3d_fold0.pt",
+    "3d_fold1.pt",
+    "3d_fold2.pt",
+    "3d_fold3.pt",
+    "3d_fold4.pt"
+  ],
+  "web_export_ok": true,
+  "web_export_error": null,
+  "reported_prereg": {
+    "tag": "prereg_20260817",
+    "arch": "3d",
+    "mean_dice": 0.8869412687265751,
+    "median_dice": 0.9245670339350138,
+    "min_dice": 0.13901750026373472,
+    "ci95": [
+      0.852581415213828,
+      0.9136187962663855
+    ],
+    "n": 60
+  },
+  "note": "Deployment/test-set model selection. The REPORTED result against RULES.md targets is `reported_prereg` and is not changed by deploying a better arm.",
+  "predict_command": "python3 -m ml.predict --input-dir <TESTSET_DIR> --output-dir outputs/testset"
+}

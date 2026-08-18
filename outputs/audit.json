@@ -1,0 +1,1440 @@
+{
+  "n_cases": 60,
+  "unique_shapes": [
+    "((240, 240, 155, 4), (240, 240, 155))"
+  ],
+  "unique_dtypes": [
+    "('<f4', '|u1')"
+  ],
+  "unique_zooms": [
+    "(1.0, 1.0, 1.0)"
+  ],
+  "brain_bbox_union": {
+    "z": [
+      0,
+      148
+    ],
+    "y": [
+      19,
+      203
+    ],
+    "x": [
+      43,
+      199
+    ]
+  },
+  "crop": {
+    "z": [
+      0,
+      155
+    ],
+    "y": [
+      16,
+      208
+    ],
+    "x": [
+      24,
+      216
+    ]
+  },
+  "crop_contains_all_brain": true,
+  "brain_fraction_mean": 0.15969255712365588,
+  "tumour_voxels": {
+    "min": 7285,
+    "p25": 68909,
+    "median": 108705,
+    "p75": 143462,
+    "max": 256875
+  },
+  "tumour_fraction_of_volume_median": 0.012175739247311829,
+  "tumour_fraction_of_brain_median": 0.07565273175705192,
+  "positive_slices": 4290,
+  "total_slices": 9300,
+  "cases_missing_a_sublabel": {
+    "oedema": [],
+    "non-enhancing core": [],
+    "enhancing tumour": []
+  },
+  "per_case": [
+    {
+      "case": "case_001",
+      "brain_voxels": 1236761,
+      "tumour_voxels": 73590,
+      "label_counts": [
+        8854410,
+        53568,
+        1654,
+        18368
+      ],
+      "positive_slices": 79,
+      "tumour_z": [
+        43,
+        121
+      ],
+      "best_slice": 80,
+      "brain_mean": {
+        "FLAIR": 652.8160400390625,
+        "T1w": 684.5519409179688,
+        "T1-Gd": 658.0266723632812,
+        "T2w": 513.2636108398438
+      }
+    },
+    {
+      "case": "case_002",
+      "brain_voxels": 1281374,
+      "tumour_voxels": 116498,
+      "label_counts": [
+        8811502,
+        33964,
+        81104,
+        1430
+      ],
+      "positive_slices": 56,
+      "tumour_z": [
+        47,
+        102
+      ],
+      "best_slice": 77,
+      "brain_mean": {
+        "FLAIR": 680.9348754882812,
+        "T1w": 761.5132446289062,
+        "T1-Gd": 793.2741088867188,
+        "T2w": 421.9864196777344
+      }
+    },
+    {
+      "case": "case_003",
+      "brain_voxels": 1538245,
+      "tumour_voxels": 181022,
+      "label_counts": [
+        8746978,
+        73529,
+        104900,
+        2593
+      ],
+      "positive_slices": 77,
+      "tumour_z": [
+        58,
+        134
+      ],
+      "best_slice": 87,
+      "brain_mean": {
+        "FLAIR": 676.6165161132812,
+        "T1w": 833.5848999023438,
+        "T1-Gd": 779.4608154296875,
+        "T2w": 362.2820739746094
+      }
+    },
+    {
+      "case": "case_004",
+      "brain_voxels": 1454639,
+      "tumour_voxels": 80882,
+      "label_counts": [
+        8847118,
+        12743,
+        64882,
+        3257
+      ],
+      "positive_slices": 62,
+      "tumour_z": [
+        33,
+        94
+      ],
+      "best_slice": 66,
+      "brain_mean": {
+        "FLAIR": 737.0631103515625,
+        "T1w": 712.2777709960938,
+        "T1-Gd": 692.87255859375,
+        "T2w": 563.3123779296875
+      }
+    },
+    {
+      "case": "case_005",
+      "brain_voxels": 1349895,
+      "tumour_voxels": 215492,
+      "label_counts": [
+        8712508,
+        155142,
+        37517,
+        22833
+      ],
+      "positive_slices": 84,
+      "tumour_z": [
+        33,
+        116
+      ],
+      "best_slice": 74,
+      "brain_mean": {
+        "FLAIR": 615.869140625,
+        "T1w": 713.8731079101562,
+        "T1-Gd": 671.0777587890625,
+        "T2w": 448.2904357910156
+      }
+    },
+    {
+      "case": "case_006",
+      "brain_voxels": 1251681,
+      "tumour_voxels": 145414,
+      "label_counts": [
+        8782586,
+        128286,
+        4992,
+        12136
+      ],
+      "positive_slices": 80,
+      "tumour_z": [
+        54,
+        133
+      ],
+      "best_slice": 94,
+      "brain_mean": {
+        "FLAIR": 629.5733032226562,
+        "T1w": 803.8698120117188,
+        "T1-Gd": 793.9465942382812,
+        "T2w": 671.7584228515625
+      }
+    },
+    {
+      "case": "case_007",
+      "brain_voxels": 1454193,
+      "tumour_voxels": 57168,
+      "label_counts": [
+        8870832,
+        37895,
+        4159,
+        15114
+      ],
+      "positive_slices": 58,
+      "tumour_z": [
+        28,
+        85
+      ],
+      "best_slice": 52,
+      "brain_mean": {
+        "FLAIR": 304.367919921875,
+        "T1w": 439.1618957519531,
+        "T1-Gd": 550.9977416992188,
+        "T2w": 842.2222900390625
+      }
+    },
+    {
+      "case": "case_008",
+      "brain_voxels": 1337070,
+      "tumour_voxels": 114015,
+      "label_counts": [
+        8813985,
+        35716,
+        28165,
+        50134
+      ],
+      "positive_slices": 76,
+      "tumour_z": [
+        40,
+        115
+      ],
+      "best_slice": 72,
+      "brain_mean": {
+        "FLAIR": 638.5206298828125,
+        "T1w": 798.837890625,
+        "T1-Gd": 760.0945434570312,
+        "T2w": 479.4412536621094
+      }
+    },
+    {
+      "case": "case_009",
+      "brain_voxels": 1273969,
+      "tumour_voxels": 132171,
+      "label_counts": [
+        8795829,
+        87165,
+        4556,
+        40450
+      ],
+      "positive_slices": 70,
+      "tumour_z": [
+        54,
+        123
+      ],
+      "best_slice": 90,
+      "brain_mean": {
+        "FLAIR": 287.5726013183594,
+        "T1w": 252.8699493408203,
+        "T1-Gd": 310.6512451171875,
+        "T2w": 361.0257873535156
+      }
+    },
+    {
+      "case": "case_010",
+      "brain_voxels": 1523401,
+      "tumour_voxels": 139254,
+      "label_counts": [
+        8788746,
+        73738,
+        45839,
+        19677
+      ],
+      "positive_slices": 76,
+      "tumour_z": [
+        43,
+        118
+      ],
+      "best_slice": 74,
+      "brain_mean": {
+        "FLAIR": 685.0501708984375,
+        "T1w": 688.4916381835938,
+        "T1-Gd": 657.3768920898438,
+        "T2w": 583.9923706054688
+      }
+    },
+    {
+      "case": "case_011",
+      "brain_voxels": 1402068,
+      "tumour_voxels": 175646,
+      "label_counts": [
+        8752354,
+        112303,
+        15982,
+        47361
+      ],
+      "positive_slices": 78,
+      "tumour_z": [
+        51,
+        128
+      ],
+      "best_slice": 89,
+      "brain_mean": {
+        "FLAIR": 181.89315795898438,
+        "T1w": 314.9179382324219,
+        "T1-Gd": 340.1519470214844,
+        "T2w": 401.11505126953125
+      }
+    },
+    {
+      "case": "case_012",
+      "brain_voxels": 1522114,
+      "tumour_voxels": 36342,
+      "label_counts": [
+        8891658,
+        34822,
+        163,
+        1357
+      ],
+      "positive_slices": 60,
+      "tumour_z": [
+        25,
+        84
+      ],
+      "best_slice": 52,
+      "brain_mean": {
+        "FLAIR": 265.0357360839844,
+        "T1w": 303.5599060058594,
+        "T1-Gd": 354.3636169433594,
+        "T2w": 560.8720092773438
+      }
+    },
+    {
+      "case": "case_013",
+      "brain_voxels": 1345025,
+      "tumour_voxels": 122592,
+      "label_counts": [
+        8805408,
+        65949,
+        25483,
+        31160
+      ],
+      "positive_slices": 64,
+      "tumour_z": [
+        56,
+        119
+      ],
+      "best_slice": 79,
+      "brain_mean": {
+        "FLAIR": 607.7525634765625,
+        "T1w": 820.5941772460938,
+        "T1-Gd": 822.0372924804688,
+        "T2w": 611.9185180664062
+      }
+    },
+    {
+      "case": "case_014",
+      "brain_voxels": 1338551,
+      "tumour_voxels": 105451,
+      "label_counts": [
+        8822549,
+        83799,
+        15588,
+        6064
+      ],
+      "positive_slices": 75,
+      "tumour_z": [
+        63,
+        137
+      ],
+      "best_slice": 106,
+      "brain_mean": {
+        "FLAIR": 748.6665649414062,
+        "T1w": 698.2353515625,
+        "T1-Gd": 729.6674194335938,
+        "T2w": 682.8506469726562
+      }
+    },
+    {
+      "case": "case_015",
+      "brain_voxels": 1529713,
+      "tumour_voxels": 36221,
+      "label_counts": [
+        8891779,
+        28408,
+        4122,
+        3691
+      ],
+      "positive_slices": 61,
+      "tumour_z": [
+        72,
+        132
+      ],
+      "best_slice": 100,
+      "brain_mean": {
+        "FLAIR": 170.50978088378906,
+        "T1w": 366.75634765625,
+        "T1-Gd": 424.7114562988281,
+        "T2w": 508.7317810058594
+      }
+    },
+    {
+      "case": "case_016",
+      "brain_voxels": 1312358,
+      "tumour_voxels": 54356,
+      "label_counts": [
+        8873644,
+        23847,
+        13017,
+        17492
+      ],
+      "positive_slices": 76,
+      "tumour_z": [
+        45,
+        125
+      ],
+      "best_slice": 95,
+      "brain_mean": {
+        "FLAIR": 748.9791870117188,
+        "T1w": 779.5381469726562,
+        "T1-Gd": 800.1657104492188,
+        "T2w": 655.0439453125
+      }
+    },
+    {
+      "case": "case_017",
+      "brain_voxels": 1435667,
+      "tumour_voxels": 52898,
+      "label_counts": [
+        8875102,
+        46780,
+        1167,
+        4951
+      ],
+      "positive_slices": 57,
+      "tumour_z": [
+        33,
+        89
+      ],
+      "best_slice": 68,
+      "brain_mean": {
+        "FLAIR": 103.90780639648438,
+        "T1w": 210.2633819580078,
+        "T1-Gd": 257.2423095703125,
+        "T2w": 252.31719970703125
+      }
+    },
+    {
+      "case": "case_018",
+      "brain_voxels": 1323769,
+      "tumour_voxels": 24434,
+      "label_counts": [
+        8903566,
+        15723,
+        4349,
+        4362
+      ],
+      "positive_slices": 45,
+      "tumour_z": [
+        67,
+        111
+      ],
+      "best_slice": 91,
+      "brain_mean": {
+        "FLAIR": 125.54119110107422,
+        "T1w": 250.841064453125,
+        "T1-Gd": 341.27734375,
+        "T2w": 310.7040710449219
+      }
+    },
+    {
+      "case": "case_019",
+      "brain_voxels": 1378776,
+      "tumour_voxels": 147172,
+      "label_counts": [
+        8780828,
+        88681,
+        11744,
+        46747
+      ],
+      "positive_slices": 72,
+      "tumour_z": [
+        36,
+        107
+      ],
+      "best_slice": 61,
+      "brain_mean": {
+        "FLAIR": 523.8909301757812,
+        "T1w": 778.5135498046875,
+        "T1-Gd": 723.0302734375,
+        "T2w": 611.4480590820312
+      }
+    },
+    {
+      "case": "case_020",
+      "brain_voxels": 1379682,
+      "tumour_voxels": 186689,
+      "label_counts": [
+        8741311,
+        91667,
+        16013,
+        79009
+      ],
+      "positive_slices": 76,
+      "tumour_z": [
+        39,
+        114
+      ],
+      "best_slice": 73,
+      "brain_mean": {
+        "FLAIR": 171.35020446777344,
+        "T1w": 273.34307861328125,
+        "T1-Gd": 298.1431884765625,
+        "T2w": 354.45428466796875
+      }
+    },
+    {
+      "case": "case_021",
+      "brain_voxels": 1421580,
+      "tumour_voxels": 66754,
+      "label_counts": [
+        8861246,
+        27992,
+        18522,
+        20240
+      ],
+      "positive_slices": 59,
+      "tumour_z": [
+        30,
+        88
+      ],
+      "best_slice": 56,
+      "brain_mean": {
+        "FLAIR": 660.5742797851562,
+        "T1w": 762.5469360351562,
+        "T1-Gd": 757.242919921875,
+        "T2w": 420.00445556640625
+      }
+    },
+    {
+      "case": "case_022",
+      "brain_voxels": 1237943,
+      "tumour_voxels": 62354,
+      "label_counts": [
+        8865646,
+        54960,
+        1693,
+        5701
+      ],
+      "positive_slices": 65,
+      "tumour_z": [
+        47,
+        111
+      ],
+      "best_slice": 72,
+      "brain_mean": {
+        "FLAIR": 138.63449096679688,
+        "T1w": 283.29644775390625,
+        "T1-Gd": 324.49432373046875,
+        "T2w": 119.08930969238281
+      }
+    },
+    {
+      "case": "case_023",
+      "brain_voxels": 1405626,
+      "tumour_voxels": 170107,
+      "label_counts": [
+        8757893,
+        127189,
+        20445,
+        22473
+      ],
+      "positive_slices": 94,
+      "tumour_z": [
+        34,
+        127
+      ],
+      "best_slice": 64,
+      "brain_mean": {
+        "FLAIR": 648.366455078125,
+        "T1w": 620.7904663085938,
+        "T1-Gd": 593.264892578125,
+        "T2w": 531.5159912109375
+      }
+    },
+    {
+      "case": "case_024",
+      "brain_voxels": 1402739,
+      "tumour_voxels": 69628,
+      "label_counts": [
+        8858372,
+        21238,
+        7774,
+        40616
+      ],
+      "positive_slices": 51,
+      "tumour_z": [
+        31,
+        81
+      ],
+      "best_slice": 59,
+      "brain_mean": {
+        "FLAIR": 434.3634948730469,
+        "T1w": 965.658935546875,
+        "T1-Gd": 1026.5333251953125,
+        "T2w": 520.3890991210938
+      }
+    },
+    {
+      "case": "case_025",
+      "brain_voxels": 1349895,
+      "tumour_voxels": 142812,
+      "label_counts": [
+        8785188,
+        95740,
+        18897,
+        28175
+      ],
+      "positive_slices": 78,
+      "tumour_z": [
+        33,
+        110
+      ],
+      "best_slice": 68,
+      "brain_mean": {
+        "FLAIR": 621.6629638671875,
+        "T1w": 773.812744140625,
+        "T1-Gd": 693.5169067382812,
+        "T2w": 475.6067810058594
+      }
+    },
+    {
+      "case": "case_026",
+      "brain_voxels": 1403699,
+      "tumour_voxels": 49235,
+      "label_counts": [
+        8878765,
+        21792,
+        5042,
+        22401
+      ],
+      "positive_slices": 51,
+      "tumour_z": [
+        39,
+        89
+      ],
+      "best_slice": 60,
+      "brain_mean": {
+        "FLAIR": 704.3562622070312,
+        "T1w": 764.4548950195312,
+        "T1-Gd": 781.7532958984375,
+        "T2w": 450.8653869628906
+      }
+    },
+    {
+      "case": "case_027",
+      "brain_voxels": 1146304,
+      "tumour_voxels": 91132,
+      "label_counts": [
+        8836868,
+        79370,
+        3149,
+        8613
+      ],
+      "positive_slices": 70,
+      "tumour_z": [
+        66,
+        135
+      ],
+      "best_slice": 108,
+      "brain_mean": {
+        "FLAIR": 199.4619903564453,
+        "T1w": 310.2528991699219,
+        "T1-Gd": 362.6488952636719,
+        "T2w": 91.63688659667969
+      }
+    },
+    {
+      "case": "case_028",
+      "brain_voxels": 1462758,
+      "tumour_voxels": 127189,
+      "label_counts": [
+        8800811,
+        86107,
+        28051,
+        13031
+      ],
+      "positive_slices": 80,
+      "tumour_z": [
+        56,
+        135
+      ],
+      "best_slice": 93,
+      "brain_mean": {
+        "FLAIR": 450.98333740234375,
+        "T1w": 376.5305480957031,
+        "T1-Gd": 445.8782043457031,
+        "T2w": 145.584716796875
+      }
+    },
+    {
+      "case": "case_029",
+      "brain_voxels": 1598778,
+      "tumour_voxels": 87753,
+      "label_counts": [
+        8840247,
+        69974,
+        4977,
+        12802
+      ],
+      "positive_slices": 78,
+      "tumour_z": [
+        39,
+        116
+      ],
+      "best_slice": 82,
+      "brain_mean": {
+        "FLAIR": 616.9602661132812,
+        "T1w": 726.273193359375,
+        "T1-Gd": 782.15087890625,
+        "T2w": 516.208740234375
+      }
+    },
+    {
+      "case": "case_030",
+      "brain_voxels": 1458532,
+      "tumour_voxels": 42452,
+      "label_counts": [
+        8885548,
+        31849,
+        6898,
+        3705
+      ],
+      "positive_slices": 62,
+      "tumour_z": [
+        60,
+        121
+      ],
+      "best_slice": 99,
+      "brain_mean": {
+        "FLAIR": 639.4143676757812,
+        "T1w": 731.22998046875,
+        "T1-Gd": 762.71044921875,
+        "T2w": 451.2292785644531
+      }
+    },
+    {
+      "case": "case_031",
+      "brain_voxels": 1405626,
+      "tumour_voxels": 122929,
+      "label_counts": [
+        8805071,
+        80426,
+        15565,
+        26938
+      ],
+      "positive_slices": 78,
+      "tumour_z": [
+        28,
+        105
+      ],
+      "best_slice": 65,
+      "brain_mean": {
+        "FLAIR": 395.4059143066406,
+        "T1w": 822.1202392578125,
+        "T1-Gd": 972.2349243164062,
+        "T2w": 866.0043334960938
+      }
+    },
+    {
+      "case": "case_032",
+      "brain_voxels": 1530946,
+      "tumour_voxels": 173331,
+      "label_counts": [
+        8754669,
+        128368,
+        27979,
+        16984
+      ],
+      "positive_slices": 95,
+      "tumour_z": [
+        29,
+        123
+      ],
+      "best_slice": 55,
+      "brain_mean": {
+        "FLAIR": 634.2288208007812,
+        "T1w": 800.9497680664062,
+        "T1-Gd": 751.5242309570312,
+        "T2w": 665.5416870117188
+      }
+    },
+    {
+      "case": "case_033",
+      "brain_voxels": 1463976,
+      "tumour_voxels": 85658,
+      "label_counts": [
+        8842342,
+        52743,
+        14585,
+        18330
+      ],
+      "positive_slices": 73,
+      "tumour_z": [
+        26,
+        98
+      ],
+      "best_slice": 50,
+      "brain_mean": {
+        "FLAIR": 715.52685546875,
+        "T1w": 679.8737182617188,
+        "T1-Gd": 677.4970092773438,
+        "T2w": 508.9931335449219
+      }
+    },
+    {
+      "case": "case_034",
+      "brain_voxels": 1271786,
+      "tumour_voxels": 75105,
+      "label_counts": [
+        8852895,
+        50194,
+        24832,
+        79
+      ],
+      "positive_slices": 76,
+      "tumour_z": [
+        37,
+        112
+      ],
+      "best_slice": 75,
+      "brain_mean": {
+        "FLAIR": 687.7100830078125,
+        "T1w": 768.2333374023438,
+        "T1-Gd": 783.7479248046875,
+        "T2w": 443.03619384765625
+      }
+    },
+    {
+      "case": "case_035",
+      "brain_voxels": 1513083,
+      "tumour_voxels": 12969,
+      "label_counts": [
+        8915031,
+        7981,
+        310,
+        4678
+      ],
+      "positive_slices": 36,
+      "tumour_z": [
+        87,
+        122
+      ],
+      "best_slice": 107,
+      "brain_mean": {
+        "FLAIR": 278.03045654296875,
+        "T1w": 467.8946533203125,
+        "T1-Gd": 276.8012390136719,
+        "T2w": 480.3098449707031
+      }
+    },
+    {
+      "case": "case_036",
+      "brain_voxels": 1251681,
+      "tumour_voxels": 141655,
+      "label_counts": [
+        8786345,
+        118607,
+        6604,
+        16444
+      ],
+      "positive_slices": 83,
+      "tumour_z": [
+        48,
+        130
+      ],
+      "best_slice": 93,
+      "brain_mean": {
+        "FLAIR": 544.5449829101562,
+        "T1w": 799.2515258789062,
+        "T1-Gd": 757.6309814453125,
+        "T2w": 678.0513305664062
+      }
+    },
+    {
+      "case": "case_037",
+      "brain_voxels": 1366706,
+      "tumour_voxels": 172752,
+      "label_counts": [
+        8755248,
+        97033,
+        19845,
+        55874
+      ],
+      "positive_slices": 75,
+      "tumour_z": [
+        39,
+        113
+      ],
+      "best_slice": 66,
+      "brain_mean": {
+        "FLAIR": 563.6422729492188,
+        "T1w": 765.070556640625,
+        "T1-Gd": 590.3880004882812,
+        "T2w": 644.5367431640625
+      }
+    },
+    {
+      "case": "case_038",
+      "brain_voxels": 1350652,
+      "tumour_voxels": 121570,
+      "label_counts": [
+        8806430,
+        104016,
+        4449,
+        13105
+      ],
+      "positive_slices": 86,
+      "tumour_z": [
+        53,
+        138
+      ],
+      "best_slice": 91,
+      "brain_mean": {
+        "FLAIR": 174.52346801757812,
+        "T1w": 333.6308288574219,
+        "T1-Gd": 396.237548828125,
+        "T2w": 510.317626953125
+      }
+    },
+    {
+      "case": "case_039",
+      "brain_voxels": 1495212,
+      "tumour_voxels": 111724,
+      "label_counts": [
+        8816276,
+        53050,
+        27189,
+        31485
+      ],
+      "positive_slices": 74,
+      "tumour_z": [
+        29,
+        102
+      ],
+      "best_slice": 63,
+      "brain_mean": {
+        "FLAIR": 513.6334838867188,
+        "T1w": 777.33154296875,
+        "T1-Gd": 725.2807006835938,
+        "T2w": 469.83905029296875
+      }
+    },
+    {
+      "case": "case_040",
+      "brain_voxels": 1566247,
+      "tumour_voxels": 96213,
+      "label_counts": [
+        8831787,
+        71117,
+        10113,
+        14983
+      ],
+      "positive_slices": 83,
+      "tumour_z": [
+        28,
+        110
+      ],
+      "best_slice": 46,
+      "brain_mean": {
+        "FLAIR": 575.5755004882812,
+        "T1w": 766.892822265625,
+        "T1-Gd": 754.183837890625,
+        "T2w": 603.6991577148438
+      }
+    },
+    {
+      "case": "case_041",
+      "brain_voxels": 1368681,
+      "tumour_voxels": 131589,
+      "label_counts": [
+        8796411,
+        59483,
+        18042,
+        54064
+      ],
+      "positive_slices": 73,
+      "tumour_z": [
+        51,
+        123
+      ],
+      "best_slice": 84,
+      "brain_mean": {
+        "FLAIR": 63.0896110534668,
+        "T1w": 118.50216674804688,
+        "T1-Gd": 128.8045654296875,
+        "T2w": 149.46408081054688
+      }
+    },
+    {
+      "case": "case_042",
+      "brain_voxels": 1697858,
+      "tumour_voxels": 118394,
+      "label_counts": [
+        8809606,
+        103227,
+        6590,
+        8577
+      ],
+      "positive_slices": 61,
+      "tumour_z": [
+        40,
+        100
+      ],
+      "best_slice": 70,
+      "brain_mean": {
+        "FLAIR": 260.1622619628906,
+        "T1w": 272.95587158203125,
+        "T1-Gd": 321.33197021484375,
+        "T2w": 597.6342163085938
+      }
+    },
+    {
+      "case": "case_043",
+      "brain_voxels": 1289125,
+      "tumour_voxels": 44582,
+      "label_counts": [
+        8883418,
+        37588,
+        521,
+        6473
+      ],
+      "positive_slices": 58,
+      "tumour_z": [
+        67,
+        124
+      ],
+      "best_slice": 88,
+      "brain_mean": {
+        "FLAIR": 212.73773193359375,
+        "T1w": 366.2106018066406,
+        "T1-Gd": 409.5770263671875,
+        "T2w": 165.44602966308594
+      }
+    },
+    {
+      "case": "case_044",
+      "brain_voxels": 1566247,
+      "tumour_voxels": 121787,
+      "label_counts": [
+        8806213,
+        110117,
+        7114,
+        4556
+      ],
+      "positive_slices": 81,
+      "tumour_z": [
+        34,
+        114
+      ],
+      "best_slice": 93,
+      "brain_mean": {
+        "FLAIR": 578.3504028320312,
+        "T1w": 710.9331665039062,
+        "T1-Gd": 744.6677856445312,
+        "T2w": 440.4417419433594
+      }
+    },
+    {
+      "case": "case_045",
+      "brain_voxels": 1421580,
+      "tumour_voxels": 65435,
+      "label_counts": [
+        8862565,
+        52279,
+        6363,
+        6793
+      ],
+      "positive_slices": 81,
+      "tumour_z": [
+        33,
+        113
+      ],
+      "best_slice": 89,
+      "brain_mean": {
+        "FLAIR": 718.04833984375,
+        "T1w": 767.7571411132812,
+        "T1-Gd": 728.8740844726562,
+        "T2w": 591.3290405273438
+      }
+    },
+    {
+      "case": "case_046",
+      "brain_voxels": 1627635,
+      "tumour_voxels": 256875,
+      "label_counts": [
+        8671125,
+        140935,
+        48805,
+        67135
+      ],
+      "positive_slices": 80,
+      "tumour_z": [
+        28,
+        107
+      ],
+      "best_slice": 65,
+      "brain_mean": {
+        "FLAIR": 204.69757080078125,
+        "T1w": 39.0044059753418,
+        "T1-Gd": 50.84272766113281,
+        "T2w": 405.0774230957031
+      }
+    },
+    {
+      "case": "case_047",
+      "brain_voxels": 1683944,
+      "tumour_voxels": 198692,
+      "label_counts": [
+        8729308,
+        126003,
+        11698,
+        60991
+      ],
+      "positive_slices": 81,
+      "tumour_z": [
+        55,
+        135
+      ],
+      "best_slice": 91,
+      "brain_mean": {
+        "FLAIR": 547.6514892578125,
+        "T1w": 738.85791015625,
+        "T1-Gd": 545.6747436523438,
+        "T2w": 504.05780029296875
+      }
+    },
+    {
+      "case": "case_048",
+      "brain_voxels": 1425118,
+      "tumour_voxels": 166140,
+      "label_counts": [
+        8761860,
+        98746,
+        30888,
+        36506
+      ],
+      "positive_slices": 86,
+      "tumour_z": [
+        47,
+        132
+      ],
+      "best_slice": 88,
+      "brain_mean": {
+        "FLAIR": 257.3392333984375,
+        "T1w": 464.13128662109375,
+        "T1-Gd": 487.0182800292969,
+        "T2w": 481.3443908691406
+      }
+    },
+    {
+      "case": "case_049",
+      "brain_voxels": 1406487,
+      "tumour_voxels": 85083,
+      "label_counts": [
+        8842917,
+        72192,
+        9219,
+        3672
+      ],
+      "positive_slices": 93,
+      "tumour_z": [
+        14,
+        106
+      ],
+      "best_slice": 66,
+      "brain_mean": {
+        "FLAIR": 648.8056640625,
+        "T1w": 814.4911499023438,
+        "T1-Gd": 782.5498046875,
+        "T2w": 665.5791625976562
+      }
+    },
+    {
+      "case": "case_050",
+      "brain_voxels": 1508844,
+      "tumour_voxels": 113287,
+      "label_counts": [
+        8814713,
+        70194,
+        38935,
+        4158
+      ],
+      "positive_slices": 77,
+      "tumour_z": [
+        58,
+        134
+      ],
+      "best_slice": 98,
+      "brain_mean": {
+        "FLAIR": 581.8533325195312,
+        "T1w": 760.1023559570312,
+        "T1-Gd": 724.2717895507812,
+        "T2w": 445.8145751953125
+      }
+    },
+    {
+      "case": "case_051",
+      "brain_voxels": 1565230,
+      "tumour_voxels": 100758,
+      "label_counts": [
+        8827242,
+        86045,
+        7491,
+        7222
+      ],
+      "positive_slices": 79,
+      "tumour_z": [
+        40,
+        118
+      ],
+      "best_slice": 79,
+      "brain_mean": {
+        "FLAIR": 240.05654907226562,
+        "T1w": 360.2609558105469,
+        "T1-Gd": 398.21722412109375,
+        "T2w": 145.78451538085938
+      }
+    },
+    {
+      "case": "case_052",
+      "brain_voxels": 1517990,
+      "tumour_voxels": 96667,
+      "label_counts": [
+        8831333,
+        91747,
+        2152,
+        2768
+      ],
+      "positive_slices": 65,
+      "tumour_z": [
+        26,
+        90
+      ],
+      "best_slice": 53,
+      "brain_mean": {
+        "FLAIR": 662.6323852539062,
+        "T1w": 793.8419189453125,
+        "T1-Gd": 746.8837280273438,
+        "T2w": 697.4248046875
+      }
+    },
+    {
+      "case": "case_053",
+      "brain_voxels": 1493421,
+      "tumour_voxels": 63159,
+      "label_counts": [
+        8864841,
+        29143,
+        19830,
+        14186
+      ],
+      "positive_slices": 50,
+      "tumour_z": [
+        52,
+        101
+      ],
+      "best_slice": 75,
+      "brain_mean": {
+        "FLAIR": 258.5545959472656,
+        "T1w": 362.971923828125,
+        "T1-Gd": 402.0121765136719,
+        "T2w": 169.2841796875
+      }
+    },
+    {
+      "case": "case_054",
+      "brain_voxels": 1514749,
+      "tumour_voxels": 218845,
+      "label_counts": [
+        8709155,
+        160462,
+        17253,
+        41130
+      ],
+      "positive_slices": 90,
+      "tumour_z": [
+        33,
+        122
+      ],
+      "best_slice": 73,
+      "brain_mean": {
+        "FLAIR": 500.2042541503906,
+        "T1w": 808.1377563476562,
+        "T1-Gd": 769.9189453125,
+        "T2w": 522.2535400390625
+      }
+    },
+    {
+      "case": "case_055",
+      "brain_voxels": 1512243,
+      "tumour_voxels": 91751,
+      "label_counts": [
+        8836249,
+        74917,
+        7311,
+        9523
+      ],
+      "positive_slices": 65,
+      "tumour_z": [
+        35,
+        99
+      ],
+      "best_slice": 62,
+      "brain_mean": {
+        "FLAIR": 223.59432983398438,
+        "T1w": 518.027587890625,
+        "T1-Gd": 374.39306640625,
+        "T2w": 498.1657409667969
+      }
+    },
+    {
+      "case": "case_056",
+      "brain_voxels": 1370331,
+      "tumour_voxels": 7285,
+      "label_counts": [
+        8920715,
+        3676,
+        2139,
+        1470
+      ],
+      "positive_slices": 29,
+      "tumour_z": [
+        102,
+        130
+      ],
+      "best_slice": 114,
+      "brain_mean": {
+        "FLAIR": 129.6922607421875,
+        "T1w": 307.760498046875,
+        "T1-Gd": 364.06610107421875,
+        "T2w": 114.25540924072266
+      }
+    },
+    {
+      "case": "case_057",
+      "brain_voxels": 1404224,
+      "tumour_voxels": 105686,
+      "label_counts": [
+        8822314,
+        47888,
+        26728,
+        31070
+      ],
+      "positive_slices": 58,
+      "tumour_z": [
+        34,
+        91
+      ],
+      "best_slice": 62,
+      "brain_mean": {
+        "FLAIR": 510.8598937988281,
+        "T1w": 848.6021728515625,
+        "T1-Gd": 826.7252197265625,
+        "T2w": 564.3770751953125
+      }
+    },
+    {
+      "case": "case_058",
+      "brain_voxels": 1432039,
+      "tumour_voxels": 149347,
+      "label_counts": [
+        8778653,
+        113095,
+        16412,
+        19840
+      ],
+      "positive_slices": 97,
+      "tumour_z": [
+        41,
+        137
+      ],
+      "best_slice": 60,
+      "brain_mean": {
+        "FLAIR": 188.4095458984375,
+        "T1w": 259.72625732421875,
+        "T1-Gd": 44.341793060302734,
+        "T2w": 581.17919921875
+      }
+    },
+    {
+      "case": "case_059",
+      "brain_voxels": 1357043,
+      "tumour_voxels": 103193,
+      "label_counts": [
+        8824807,
+        64361,
+        9896,
+        28936
+      ],
+      "positive_slices": 81,
+      "tumour_z": [
+        47,
+        127
+      ],
+      "best_slice": 78,
+      "brain_mean": {
+        "FLAIR": 565.4771118164062,
+        "T1w": 764.0135498046875,
+        "T1-Gd": 763.9603271484375,
+        "T2w": 528.0541381835938
+      }
+    },
+    {
+      "case": "case_060",
+      "brain_voxels": 1608600,
+      "tumour_voxels": 157749,
+      "label_counts": [
+        8770251,
+        47925,
+        97830,
+        11994
+      ],
+      "positive_slices": 76,
+      "tumour_z": [
+        29,
+        104
+      ],
+      "best_slice": 63,
+      "brain_mean": {
+        "FLAIR": 136.94068908691406,
+        "T1w": 237.4357452392578,
+        "T1-Gd": 255.361328125,
+        "T2w": 458.46685791015625
+      }
+    }
+  ]
+}

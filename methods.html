@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TumorNet 2000 ™ — How It Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body data-page="methods">
+
+<div class="page">
+
+  <div class="marquee">
+    <div class="marquee__reel">
+      <span class="marquee__text">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** METHODS SECTION: 100% ACTUAL SCIENCE *** <span data-mascot-name>Braino</span> READ THE WHOLE THING, UNLIKE MOST PEOPLE ***</span>
+      <span class="marquee__text" aria-hidden="true">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** METHODS SECTION: 100% ACTUAL SCIENCE *** <span data-mascot-name>Braino</span> READ THE WHOLE THING, UNLIKE MOST PEOPLE ***</span>
+    </div>
+  </div>
+
+  <main class="frame">
+
+    <header class="masthead">
+      <div class="masthead__title-row">
+        <div class="diamond diamond--yellow" aria-hidden="true"></div>
+        <h1 class="wordmark">TumorNet <span class="wordmark__sup">2000</span> ™</h1>
+        <div class="diamond diamond--cyan" aria-hidden="true"></div>
+      </div>
+      <p class="tagline">The Internet's #1 Virtual Tumor Detection Lab! 100% Free. Accuracy not guaranteed.</p>
+      <div class="badge-row">
+        <span class="badge badge--netscape">BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 · 800×600 · 16-BIT COLOR</span>
+        <span class="badge badge--new">NEW!</span>
+        <span class="badge badge--doctype">HTML 4.01 TRANSITIONAL</span>
+      </div>
+    </header>
+
+    <nav class="sitenav" aria-label="Site navigation" id="siteNav"></nav>
+
+    <div class="construction">MODEL SECTION UNDER CONSTRUCTION — DATA PIPELINE IS LIVE</div>
+
+    <div class="frame__body">
+
+      <aside class="sidebar">
+        <section class="counter">
+          <h2 class="counter__label">YOU ARE VISITOR NUMBER</h2>
+          <div class="counter__digits" id="hitCounter" role="img" aria-label="visitor count"></div>
+          <p class="counter__note">since the site's creation (probably)</p>
+        </section>
+
+        <section class="guestbook">
+          <h2 class="guestbook__title">SIGN OUR GUESTBOOK</h2>
+          <p class="guestbook__note">(read-only, don't ask)</p>
+          <ul class="guestbook__list" id="guestbookList"></ul>
+          <div class="guestbook__form">
+            <input class="guestbook__input" id="guestbookName" placeholder="Your name..." aria-label="Your name">
+            <input class="guestbook__input" id="guestbookMessage" placeholder="Your message..." aria-label="Your message">
+            <button class="guestbook__submit" id="guestbookSign" type="button">Sign →</button>
+          </div>
+        </section>
+
+        <section class="webring">
+          <h2 class="webring__title">◆ WEBRING ◆</h2>
+          <p class="webring__links">
+            [ <a href="about.html">← prev</a> ·
+            <a href="index.html">random</a> ·
+            <a href="guestbook.html">next →</a> ]
+          </p>
+        </section>
+      </aside>
+
+      <section class="lab lab--wide">
+
+        <h2 class="lab__heading">HOW IT WORKS</h2>
+        <p class="lab__steps">The pipeline as it actually stands — architecture, augmentation, protocol, and the rules we held ourselves to.</p>
+
+        <article class="doc">
+          <h3 class="doc__heading">1 · The data</h3>
+          <p>
+            60 brain MRI cases, four co-registered channels each (FLAIR, T1w, T1-Gd, T2w),
+            skull-stripped, 240×240×155 at 1&nbsp;mm isotropic resolution. An expert has drawn
+            three tumour sub-labels — oedema, non-enhancing core, enhancing tumour — which we
+            collapse to one binary target: <code>label &gt; 0</code>, the BraTS "whole tumour"
+            region. See <a href="about.html#fig-F01">F01</a> and <a href="about.html#fig-F03">F03</a> for what
+            that looks like.
+          </p>
+
+          <h3 class="doc__heading">2 · Preprocessing</h3>
+          <ul class="doc__list">
+            <li><strong>Brain mask</strong> — any voxel non-zero in any channel. Background air is excluded from every statistic and every metric.</li>
+            <li><strong>Per-case, per-channel z-score</strong> inside the brain mask — mandatory, not optional. Brain-mean FLAIR spans an 11.9× range across the cohort with no clinical meaning (<a href="about.html#fig-F02">F02</a>); a model fed raw intensities learns which case it's looking at.</li>
+            <li><strong>Crop</strong> to a fixed 192×192 in-plane box that clears every case's brain with margin, asserted against all 60 volumes, not sampled.</li>
+          </ul>
+
+          <h3 class="doc__heading">3 · Data augmentation</h3>
+          <p>
+            With 48 cases per training fold, augmentation is not polish — it is most of what
+            stands between the model and memorising 48 brains. Ranges are deliberately mild:
+            this is MRI, and a 45° rotation or a 2× intensity swing would manufacture anatomy
+            that does not occur in vivo. Everything below is applied on the GPU, per sample,
+            freshly randomised every time a patch is drawn.
+          </p>
+          <pre class="doc__ascii" aria-label="Augmentation pipeline diagram">   ONE TRAINING PATCH                       image        mask
+   ══════════════════                       ═════        ════
+
+   flip each axis        p = 0.5   ─┐
+   rotate about z        ± 10°      ├─ ONE fused affine ──▶  ✓  ────────▶  ✓   nearest-neighbour,
+   scale                 ± 10%     ─┘   (single grid_sample)                   so the mask stays
+                                                                               registered to the image
+
+   intensity × (1 ± 0.15)          ─┐
+   intensity + (0 ± 0.10)           │
+   gaussian noise  σ = 0.08         ├─ appearance only ───▶  ✓  ────────▶  ·   mask untouched
+   bias field ± 15%, 4³ grid       ─┘                                          (these change how the
+                                                                               scan looks, not where
+                                                                               the tumour is)</pre>
+          <p class="doc__caption">
+            Geometry is one combined affine rather than three sequential resamples — each
+            resample blurs, so doing it once costs one interpolation instead of three. The mask
+            rides the same transform with nearest-neighbour sampling and is re-binarised
+            afterwards, so it can never drift out of register with the image.
+          </p>
+
+          <h3 class="doc__heading">4 · The model</h3>
+          <p>
+            A <strong>3D residual U-Net</strong>: 8,959,163 parameters, depth 4, base width 20,
+            trained on random 96×160×160 voxel patches at batch size 8. All four modalities go in
+            as channels; one binary tumour probability comes out. <code>InstanceNorm3d</code>
+            throughout rather than batch norm — with 48 cases per fold and a 3D patch batch of 8,
+            per-batch statistics are too noisy to normalise against.
+          </p>
+          <pre class="doc__ascii" aria-label="3D U-Net architecture diagram">  in: 4 × 96×160×160                                                   out: 1 × 96×160×160
+         │                                                                      ▲
+         ▼                     ENCODER                    DECODER               │
+  ┌─────────────┐                                                      ┌────────────────┐
+  │ stem   Res  │  20 ch  96×160×160 ─────── skip ───────────────────▶ │ Res   40 → 20  │──▶ ◉ MAIN   w 0.571
+  └──────┬──────┘                                                      └───────▲────────┘
+      pool ↓2                                                        convT 40→20
+         ▼                                                                     │
+  ┌─────────────┐                                                      ┌────────────────┐
+  │ down0  Res  │  40 ch  48× 80× 80 ─────── skip ───────────────────▶ │ Res   80 → 40  │──▶ ◎ aux ½  w 0.286
+  └──────┬──────┘                                                      └───────▲────────┘
+      pool ↓2                                                        convT 80→40
+         ▼                                                                     │
+  ┌─────────────┐                                                      ┌────────────────┐
+  │ down1  Res  │  80 ch  24× 40× 40 ─────── skip ───────────────────▶ │ Res  160 → 80  │──▶ ◎ aux ¼  w 0.143
+  └──────┬──────┘                                                      └───────▲────────┘
+      pool ↓2                                                        convT 160→80
+         ▼                                                                     │
+  ┌─────────────┐                                                      ┌────────────────┐
+  │ down2  Res  │ 160 ch  12× 20× 20 ─────── skip ───────────────────▶ │ Res  320 → 160 │
+  └──────┬──────┘                                                      └───────▲────────┘
+      pool ↓2                                                        convT 320→160
+         ▼                                                                     │
+  ┌────────────────────────────────────────────────────────────────────────────┴───────┐
+  │ down3  Res   320 ch   6×10×10        BOTTLENECK — whole region, no fine detail     │
+  └────────────────────────────────────────────────────────────────────────────────────┘
+
+  Res(in → out):   x ──┬─ Conv3d 3³ ─ IN ─ LeakyReLU ─ Conv3d 3³ ─ IN ─┐
+                       │                                            (+)──▶ LeakyReLU
+                       └─ Conv3d 1³  (only when in ≠ out) ───────────┘</pre>
+          <p class="doc__caption">
+            The <code>skip</code> arrows hand the decoder back the fine detail the encoder threw
+            away; without them the model would have to invent edges from a blurry summary. The
+            encoder-side residual connections keep gradients flowing at depth.
+          </p>
+
+          <h3 class="doc__heading">5 · Deep supervision</h3>
+          <p>
+            The two <code>◎ aux</code> heads above are 1×1×1 convolutions on intermediate decoder
+            stages, each producing a coarse tumour map that is scored during training and
+            discarded afterwards. They inject correction signal directly into the middle of the
+            network instead of making it travel all the way back from the output. Weights halve
+            with resolution and are <strong>normalised to sum to 1</strong> — otherwise turning
+            deep supervision on would also scale the total loss, and therefore the effective
+            learning rate, making an architecture ablation secretly a learning-rate ablation.
+          </p>
+          <p>
+            The lowest-resolution decoder stage gets no head: at 1/16 scale the smallest lesion
+            in this cohort is a handful of voxels and the head mostly learns noise. Targets are
+            matched to each head's resolution by average pooling, giving soft occupancy
+            fractions. Average versus nearest-neighbour was <em>measured</em>, not argued —
+            average won, 0.905 against 0.898 mean out-of-fold Dice.
+          </p>
+
+          <h3 class="doc__heading">6 · Training protocol</h3>
+          <ul class="doc__list">
+            <li><strong>Loss</strong> — soft Dice + BCE, equally weighted. Dice handles the class imbalance directly; BCE keeps early training stable while the network still predicts near-zero foreground everywhere.</li>
+            <li><strong>Optimiser</strong> — AdamW, weight decay 1e-4, <code>OneCycleLR</code> stepped per batch with <code>max_lr = 1e-3</code>. 3e-3 was tried first and destabilised training under fp16: from the LR peak onward almost every batch produced a non-finite loss.</li>
+            <li><strong>Mixed precision</strong> — fp16 autocast with gradient scaling, gradient-norm clipping at 1.0, and a non-finite-loss guard that skips and logs the step rather than letting one bad update poison every later forward pass.</li>
+            <li><strong>5-fold cross-validation</strong> — 48 train / 12 validation per fold, fold membership computed once from a fixed seed and shared by both baselines and the model, so every comparison is on identical held-out sets. Every case gets an out-of-fold prediction from a model that never saw it.</li>
+            <li><strong>Checkpoint selection</strong> — best validation Dice, on a <em>frozen</em> validation patch set. It was not always frozen: patches were originally re-drawn every epoch, so "best epoch" chased a moving target and three of five folds locked in weights from before the learning-rate peak, un-annealed. Fixing that, plus gating early stopping to the second half of the schedule, is what took worst-case Dice from 0.139 to 0.612.</li>
+          </ul>
+
+          <h3 class="doc__heading">7 · Inference</h3>
+          <ul class="doc__list">
+            <li><strong>Sliding window</strong> over the full 155×192×192 crop — 12 overlapping patches per case at 50% stride, uniformly averaged. Coverage is asserted, not assumed: no voxel is left unpredicted.</li>
+            <li><strong>Test-time augmentation</strong> — left–right flip, averaged with the unflipped prediction. Legitimate under strict out-of-fold evaluation because it reuses only the same single model that never saw the case.</li>
+            <li><strong>Post-processing</strong> — threshold 0.5, keep the largest connected components above 500 voxels, and never predict outside the brain mask.</li>
+            <li><strong>For a genuinely unseen scan, all five fold models vote</strong> and their probabilities are averaged. This is deliberately <em>not</em> used for the 60 development cases: four of the five trained on any given one of them, so an "ensemble" score there would be leaked rather than merely optimistic.</li>
+          </ul>
+
+          <h3 class="doc__heading">8 · Pre-registered criteria, and what we got</h3>
+          <p>
+            Fixed before any training happened, revised once — same day, still before training —
+            when the compute budget changed. If these are missed, the targets do not move. Both
+            columns below are reported regardless of which was hit.
+          </p>
+          <table class="doc__table">
+            <thead><tr><th></th><th>floor</th><th>stretch</th><th>measured</th></tr></thead>
+            <tbody>
+              <tr><td>Mean out-of-fold Dice, 60 cases</td><td>≥ 0.85</td><td>≥ 0.90</td><td>0.905 ✓</td></tr>
+              <tr><td>Median Dice</td><td>≥ 0.87</td><td>≥ 0.90</td><td>0.928 ✓</td></tr>
+              <tr><td>Worst-case Dice</td><td>≥ 0.55</td><td>≥ 0.55 (unchanged)</td><td>0.612 ✓</td></tr>
+              <tr><td>Beats FLAIR-threshold baseline</td><td colspan="2">paired Wilcoxon, p &lt; 0.01</td><td>p = 1.6e-11 ✓</td></tr>
+              <tr><td>Training budget</td><td colspan="2">≤ 170 min (RTX&nbsp;3090&nbsp;Ti, this machine)</td><td>99.5 min ✓</td></tr>
+            </tbody>
+          </table>
+          <p>
+            One caveat that belongs next to those numbers rather than in a footnote. The figure
+            fixed <em>at pre-registration time</em> was mean Dice 0.887, and it failed the
+            worst-case floor at 0.139. The 0.905 above comes from a later run that fixed a real
+            defect in checkpoint selection — described in section 6 — and is reported as a
+            separate, labelled arm rather than as a retroactive edit to the pre-registered
+            result. Both are kept; see <a href="results.html">THE NUMBERS</a>.
+          </p>
+
+          <h3 class="doc__heading">9 · Ground rules</h3>
+          <ol class="doc__list doc__list--numbered">
+            <li>Ask for the plan before writing files.</li>
+            <li>Never accept a number you have not seen a figure for.</li>
+            <li>Decide what a good result looks like before you produce one.</li>
+            <li>Report what you found, not what you hoped for.</li>
+          </ol>
+
+          <h3 class="doc__heading">10 · Limitations, stated up front</h3>
+          <ul class="doc__list">
+            <li><strong>n = 60.</strong> Every metric will carry a confidence interval; a small cohort bounds what we're entitled to conclude.</li>
+            <li><strong>Binary whole-lesion target only.</strong> Numbers here are not comparable to published tumour-core or enhancing-tumour scores.</li>
+            <li><strong>Provenance withheld.</strong> The dataset's source and citation are held back by the course until the lab ends — nothing here should be compared to a named benchmark as if it were the same test set.</li>
+          </ul>
+        </article>
+
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__badges">
+        <span class="footer__badge footer__badge--yellow">100% ORGANIC NEURONS</span>
+        <span class="footer__badge footer__badge--cyan">HTML 4.01 APPROVED</span>
+        <span class="footer__badge footer__badge--pink">◄ WEBRING ►</span>
+      </div>
+      <p class="footer__copy">© 2000–2003 TumorNet Labs. All Rights Reserved. Not affiliated with any real hospital, browser, or brain.</p>
+      <p class="footer__disclaimer">This is a design demo and does not diagnose anything. Please consult an actual doctor, not a cartoon brain with googly eyes.</p>
+    </footer>
+
+  </main>
+
+  <div class="mascot-dock">
+    <div class="mascot__bubble" id="mascotBubble" role="status" hidden></div>
+    <button class="brain" id="brain" type="button" aria-label="Ask the mascot for a fun fact">
+      <span class="brain__fissure" aria-hidden="true"></span>
+      <span class="brain__eye brain__eye--left" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__eye brain__eye--right" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__mouth" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</div>
+
+<script src="src/site.js"></script>
+<script src="src/scans.js"></script>
+<script src="src/popups.js"></script>
+</body>
+</html>

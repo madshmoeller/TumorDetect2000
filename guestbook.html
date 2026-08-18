@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TumorNet 2000 ™ — Guestbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body data-page="guestbook">
+
+<div class="page">
+
+  <div class="marquee">
+    <div class="marquee__reel">
+      <span class="marquee__text">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** SIGN THE GUESTBOOK (IT DOES NOTHING) *** <span data-mascot-name>Braino</span> READS EVERY ENTRY AND JUDGES SILENTLY ***</span>
+      <span class="marquee__text" aria-hidden="true">*** THIS IS A DESIGN DEMO — NOT A REAL DIAGNOSTIC TOOL *** SIGN THE GUESTBOOK (IT DOES NOTHING) *** <span data-mascot-name>Braino</span> READS EVERY ENTRY AND JUDGES SILENTLY ***</span>
+    </div>
+  </div>
+
+  <main class="frame">
+
+    <header class="masthead">
+      <div class="masthead__title-row">
+        <div class="diamond diamond--yellow" aria-hidden="true"></div>
+        <h1 class="wordmark">TumorNet <span class="wordmark__sup">2000</span> ™</h1>
+        <div class="diamond diamond--cyan" aria-hidden="true"></div>
+      </div>
+      <p class="tagline">The Internet's #1 Virtual Tumor Detection Lab! 100% Free. Accuracy not guaranteed.</p>
+      <div class="badge-row">
+        <span class="badge badge--netscape">BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 · 800×600 · 16-BIT COLOR</span>
+        <span class="badge badge--new">NEW!</span>
+        <span class="badge badge--doctype">HTML 4.01 TRANSITIONAL</span>
+      </div>
+    </header>
+
+    <nav class="sitenav" aria-label="Site navigation" id="siteNav"></nav>
+
+    <div class="construction">THIS SITE IS PERPETUALLY UNDER CONSTRUCTION</div>
+
+    <div class="frame__body">
+
+      <aside class="sidebar">
+        <section class="counter">
+          <h2 class="counter__label">YOU ARE VISITOR NUMBER</h2>
+          <div class="counter__digits" id="hitCounter" role="img" aria-label="visitor count"></div>
+          <p class="counter__note">since the site's creation (probably)</p>
+        </section>
+
+        <section class="guestbook">
+          <h2 class="guestbook__title">SIGN OUR GUESTBOOK</h2>
+          <p class="guestbook__note">(read-only, don't ask)</p>
+          <ul class="guestbook__list" id="guestbookList"></ul>
+          <div class="guestbook__form">
+            <input class="guestbook__input" id="guestbookName" placeholder="Your name..." aria-label="Your name">
+            <input class="guestbook__input" id="guestbookMessage" placeholder="Your message..." aria-label="Your message">
+            <button class="guestbook__submit" id="guestbookSign" type="button">Sign →</button>
+          </div>
+        </section>
+
+        <section class="webring">
+          <h2 class="webring__title">◆ WEBRING ◆</h2>
+          <p class="webring__links">
+            [ <a href="methods.html">← prev</a> ·
+            <a href="results.html">random</a> ·
+            <a href="index.html">next →</a> ]
+          </p>
+        </section>
+      </aside>
+
+      <section class="lab lab--wide">
+        <h2 class="lab__heading">EVERY ENTRY EVER SIGNED</h2>
+        <p class="lab__steps">
+          The sidebar only has room for the 5 most recent signatures. This is the whole scroll,
+          oldest sins first. Sign over there in the sidebar; it shows up down here forever.
+        </p>
+        <ul class="guestbook__list guestbook__list--full" id="guestbookFullList"></ul>
+        <p class="gallery__note">
+          Real guestbooks from 2000 did not have rate limiting, moderation, or a database. Neither
+          does this one, technically — it has localStorage and a brain that judges you. Fair trade.
+        </p>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__badges">
+        <span class="footer__badge footer__badge--yellow">100% ORGANIC NEURONS</span>
+        <span class="footer__badge footer__badge--cyan">HTML 4.01 APPROVED</span>
+        <span class="footer__badge footer__badge--pink">◄ WEBRING ►</span>
+      </div>
+      <p class="footer__copy">© 2000–2003 TumorNet Labs. All Rights Reserved. Not affiliated with any real hospital, browser, or brain.</p>
+      <p class="footer__disclaimer">This is a design demo and does not diagnose anything. Please consult an actual doctor, not a cartoon brain with googly eyes.</p>
+    </footer>
+
+  </main>
+
+  <div class="mascot-dock">
+    <div class="mascot__bubble" id="mascotBubble" role="status" hidden></div>
+    <button class="brain" id="brain" type="button" aria-label="Ask the mascot for a fun fact">
+      <span class="brain__fissure" aria-hidden="true"></span>
+      <span class="brain__eye brain__eye--left" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__eye brain__eye--right" aria-hidden="true"><span class="brain__pupil" data-pupil></span></span>
+      <span class="brain__mouth" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</div>
+
+<script src="src/site.js"></script>
+<script src="src/scans.js"></script>
+<script src="src/popups.js"></script>
+</body>
+</html>
