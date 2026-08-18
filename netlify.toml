@@ -1,0 +1,33 @@
+# Static deploy: the repository root IS the site. No build step — the case
+# atlases under assets/cases/ are pre-rendered and committed, because Netlify can
+# only serve what is in the repo and rendering them needs the dataset submodule
+# plus a 3.2 GB preprocessing cache.
+[build]
+  publish = "."
+  command = ""
+
+# The atlases are content-immutable: a given case/channel/plane PNG never changes
+# without the case being re-exported under the same name. Cache them hard —
+# there are 2401 of them and a cold visit otherwise re-fetches ~7 MB per case.
+[[headers]]
+  for = "/assets/cases/*/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/figures/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# The manifest is the one file that changes when the export is re-run, and
+# viewer.js already fetches it with cache: 'no-store'. Keep the CDN honest too,
+# or a stale manifest will point at cases that no longer exist.
+[[headers]]
+  for = "/assets/cases/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

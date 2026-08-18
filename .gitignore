@@ -9,12 +9,19 @@
 # ── Preprocessing cache — 3.2 GB, rebuilt with: python -m ml.data --build
 ml/cache/
 
-# ── Website atlases — 819 MB of PNGs rendered from the dataset.
-# The viewer degrades gracefully without them (documented fallback at the bottom
-# of src/viewer.js). Rebuilt with:
+# ── Website atlases: assets/cases/ IS tracked (814 MB, 2401 files).
+#
+# Deliberately, despite being regenerable. The site is deployed as static files
+# to Netlify, which serves what is in the repository — there is no build step that
+# could render them, and doing so would need the 3.2 GB preprocessing cache and
+# the dataset submodule. Excluding them meant the deployed viewer 404'd on
+# assets/cases/manifest.json and silently fell back to its scripted demo, so the
+# live site showed fabricated scans while looking like it worked.
+#
+# No single file approaches GitHub's 100 MB limit (largest is 0.7 MB), so no LFS.
+# Regenerate with:
 #     python -m ml.export_web --full --arch 3d
 #     python -m ml.export_web_eval
-assets/cases/
 
 # ── Model weights.
 #
