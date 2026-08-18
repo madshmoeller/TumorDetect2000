@@ -74,12 +74,14 @@
         <h2 class="lab__heading">EVERY ENTRY EVER SIGNED</h2>
         <p class="lab__steps">
           The sidebar only has room for the 5 most recent signatures. This is the whole scroll,
-          oldest sins first. Sign over there in the sidebar; it shows up down here forever.
+          oldest sins first. Sign over there in the sidebar; it shows up down here for everyone, forever.
         </p>
         <ul class="guestbook__list guestbook__list--full" id="guestbookFullList"></ul>
         <p class="gallery__note">
-          Real guestbooks from 2000 did not have rate limiting, moderation, or a database. Neither
-          does this one, technically — it has localStorage and a brain that judges you. Fair trade.
+          Real guestbooks from 2000 did not have rate limiting, moderation, or a database. This one
+          has two of those: entries are stored server-side, so they persist for everyone rather than
+          only in your browser, and there is a modest per-visitor cooldown. Moderation remains a
+          brain with googly eyes judging you silently. Fair trade.
         </p>
       </section>
     </div>

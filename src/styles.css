@@ -1656,3 +1656,16 @@ img { display: block; max-width: 100%; }
 @media (max-width: 640px) {
   .doc__ascii { font-size: 10px; padding: 10px; }
 }
+
+/* Honeypot for the guestbook: invisible to people, irresistible to bots. Hidden
+   with position/opacity rather than display:none, because some bots skip fields
+   they can tell are undisplayed. aria-hidden + tabindex=-1 keep it away from
+   screen readers and the tab order. */
+.guestbook__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}

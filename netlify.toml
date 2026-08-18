@@ -5,6 +5,10 @@
 [build]
   publish = "."
   command = ""
+  # The guestbook is a Netlify Function backed by Netlify Blobs. Declared here so
+  # the dependency in package.json is installed at deploy time; the site itself
+  # still has no build step.
+  functions = "netlify/functions"
 
 # The atlases are content-immutable: a given case/channel/plane PNG never changes
 # without the case being re-exported under the same name. Cache them hard —
@@ -31,3 +35,11 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# The guestbook endpoint must never be cached — it both reads and writes the
+# shared scroll, and a cached GET would show visitors a stale list that silently
+# omits the entry they just signed.
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"

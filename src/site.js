@@ -49,6 +49,15 @@ window.TumorNet = window.TumorNet || {};
 
   const HITS_KEY = 'tumornet2000_hits';
   const GUESTBOOK_KEY = 'tumornet2000_guestbook';
+
+  //: Server-side guestbook (netlify/functions/guestbook.mjs, backed by Netlify
+  //: Blobs). localStorage alone meant "signing" saved nothing anybody else could
+  //: see — every visitor kept a private copy. The endpoint is the source of truth
+  //: when it answers; localStorage stays as the offline fallback so `python
+  //: serve.py` and file:// keep working, where no function exists to call.
+  const GUESTBOOK_API = '/api/guestbook';
+  let remoteEntries = null;   // null = endpoint not reachable / not tried yet
+  let signing = false;
   const HITS_SEED = 1041;
   const BUBBLE_MS = 10000;
   const EYE_RANGE = 140;
@@ -65,6 +74,7 @@ window.TumorNet = window.TumorNet || {};
     guestbookName:     $('guestbookName'),
     guestbookMessage:  $('guestbookMessage'),
     guestbookSign:     $('guestbookSign'),
+    guestbookWebsite:  $('guestbookWebsite'),
     mascotBubble:      $('mascotBubble'),
     brain:             $('brain')
   };
@@ -124,18 +134,36 @@ window.TumorNet = window.TumorNet || {};
     });
   }
 
-  function signGuestbook() {
-    if (!el.guestbookName) return;
+  async function signGuestbook() {
+    if (!el.guestbookName || signing) return;
     const name = el.guestbookName.value;
     const message = el.guestbookMessage ? el.guestbookMessage.value : '';
+    if (!name || !name.trim()) {
+      say('A name first. Anonymity is fine but blankness is rude.');
+      return;
+    }
     if (!message || !message.trim()) {
       say('Words too, please. I judge silently but I still need something to judge.');
       return;
     }
-    if (addGuestbookEntry(name, message.trim())) {
+
+    signing = true;
+    if (el.guestbookSign) el.guestbookSign.disabled = true;
+    try {
+      const status = await addGuestbookEntry(name, message.trim());
+      if (status === 'throttled') {
+        say('One signature at a time. Even I need a moment between judgements.');
+        return;
+      }
+      if (status === 'invalid') return;
       el.guestbookName.value = '';
       if (el.guestbookMessage) el.guestbookMessage.value = '';
-      say(`${name} signed the guestbook. How thrilling.`);
+      say(status === 'shared'
+        ? `${name} signed the guestbook, permanently, where everyone can see it. Bold.`
+        : `${name} signed the guestbook — but only on this device. No backend here.`);
+    } finally {
+      signing = false;
+      if (el.guestbookSign) el.guestbookSign.disabled = false;
     }
   }
 
@@ -162,6 +190,9 @@ window.TumorNet = window.TumorNet || {};
 
   function getGuestbookEntries() {
     const defaultEntries = NS.guestbookEntries || [];
+    // When the endpoint has answered, it is authoritative: showing the server's
+    // list alongside a local copy would double up entries this browser signed.
+    if (remoteEntries) return [...defaultEntries, ...remoteEntries];
     let stored = [];
     try {
       const data = localStorage.getItem(GUESTBOOK_KEY);
@@ -172,21 +203,70 @@ window.TumorNet = window.TumorNet || {};
     return [...defaultEntries, ...stored];
   }
 
-  function addGuestbookEntry(name, text) {
-    if (!name || !name.trim()) return false;
+  /** Pull the shared scroll. Silent on failure: a static local copy with no
+   *  function backend is a supported way to run this site, not an error. */
+  async function loadRemoteGuestbook() {
+    if (!el.guestbookList && !el.guestbookFullList) return;
+    try {
+      const res = await fetch(GUESTBOOK_API, { cache: 'no-store' });
+      if (!res.ok) return;
+      const data = await res.json();
+      if (!data || !Array.isArray(data.entries)) return;
+      remoteEntries = data.entries;
+      renderGuestbook();
+      renderGuestbookFull();
+    } catch (err) {
+      // offline, no function, blocked — keep whatever localStorage gave us
+    }
+  }
+
+  function addGuestbookEntryLocal(name, text) {
     const entry = { name: name.trim(), text };
-    let entries = [];
     try {
       const data = localStorage.getItem(GUESTBOOK_KEY);
-      entries = data ? JSON.parse(data) : [];
+      const entries = data ? JSON.parse(data) : [];
       entries.push(entry);
       localStorage.setItem(GUESTBOOK_KEY, JSON.stringify(entries));
     } catch (err) {
       // private browsing, file://, storage blocked, ... can't persist
     }
+  }
+
+  /** Try the shared guestbook first, fall back to this browser only.
+   *  Returns a status so the mascot can tell the truth about what happened —
+   *  "signed" and "saved only on this device" are different outcomes and the
+   *  user deserves to know which they got. */
+  async function addGuestbookEntry(name, text) {
+    if (!name || !name.trim()) return 'invalid';
+    let status = 'local';
+    try {
+      const res = await fetch(GUESTBOOK_API, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        // The honeypot is sent as-is: the server treats any non-empty value as
+        // a bot and quietly accepts-without-storing, so a filled field must
+        // reach it rather than being stripped here.
+        body: JSON.stringify({
+          name: name.trim(),
+          text,
+          website: el.guestbookWebsite ? el.guestbookWebsite.value : ''
+        })
+      });
+      if (res.status === 429) return 'throttled';
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.entries)) {
+          remoteEntries = data.entries;
+          status = 'shared';
+        }
+      }
+    } catch (err) {
+      // no endpoint (local static serve) — fall through to localStorage
+    }
+    if (status !== 'shared') addGuestbookEntryLocal(name, text);
     renderGuestbook();
     renderGuestbookFull();
-    return true;
+    return status;
   }
 
   function buildGuestbookList(target, entries) {
@@ -226,6 +306,9 @@ window.TumorNet = window.TumorNet || {};
     renderHitCounter();
     renderGuestbook();
     renderGuestbookFull();
+    // Render the seeded/local list first so the page is never briefly empty,
+    // then swap in the shared scroll when the endpoint answers.
+    loadRemoteGuestbook();
 
     if (el.brain) el.brain.addEventListener('click', cycleTrivia);
     if (el.guestbookSign) {

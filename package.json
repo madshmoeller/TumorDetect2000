@@ -1,0 +1,9 @@
+{
+  "name": "tumordetect-site",
+  "private": true,
+  "type": "module",
+  "description": "Netlify Functions for the TumorNet 2000 site. The site itself is static HTML/CSS/JS with no build step; this package exists only so the guestbook function can persist entries in Netlify Blobs.",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
